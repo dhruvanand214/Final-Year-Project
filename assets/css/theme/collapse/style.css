@@ -865,7 +865,7 @@ span.online-status {
   background-repeat: no-repeat !important;
   text-indent: -10000px;
   outline: 0;
-  background-image: url(../img/remove-icon-small.html) !important;
+  background-image: url(img/remove-icon-small.html) !important;
 }
 .help-block {
   margin-top: 5px;
