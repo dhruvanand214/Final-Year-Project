@@ -1,8 +1,37 @@
+<?php
+
+session_start();
+
+require('db.php');
+
+$error = "";
+
+if(isset($_POST['signin'])){
+	$uname = $_POST['uname'];
+	$pwd = $_POST['pwd'];
+
+	$sql = "SELECT * FROM login WHERE Username = '$uname' AND password = '$pwd'";
+
+	$result = mysqli_query($con, $sql);
+
+	$count = mysqli_num_rows($result);
+	if($count>0){
+		$row = mysqli_fetch_assoc($result);
+		$_SESSION['ROLE'] = $row['role'];
+		$_SESSION['IS_LOGIN'] = 'yes';
+		header('location:dashboard.php');
+	}else{
+		$error = "Invalid Username or Password";
+	}
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
 
 
-<!-- Mirrored from www.einfosoft.com/templates/admin/smart/source/light/sign_up.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 17 Dec 2022 06:35:06 GMT -->
+
 <head>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,21 +56,20 @@
 
 <body>
 	<div class="main">
-		<!-- Sign up form -->
-		<section class="signup">
+		<!-- Sing in  Form -->
+		<section class="sign-in">
 			<div class="container">
-				<div class="signup-content">
-					<div class="signup-form">
-						<h2 class="form-title">Sign up</h2>
-						<form method="POST" class="register-form" id="register-form">
+				<div class="signin-content">
+					<div class="signin-image">
+						<figure><img src="assets/img/favicon/logo-half.png" alt="sing up image"></figure>
+						<a href="sign_up.html" class="signup-image-link">Create an account</a>
+					</div>
+					<div class="signin-form">
+						<h2 class="form-title">Students Login</h2>
+						<form class="register-form" id="login-form" method="post">
 							<div class="form-group">
 								<div class="">
-									<input name="uname" type="text" placeholder="Your Name"
-										class="form-control input-height" /> </div>
-							</div>
-							<div class="form-group">
-								<div class="">
-									<input name="email" type="email" placeholder="Your Email"
+									<input name="uname" type="text" placeholder="User Name"
 										class="form-control input-height" /> </div>
 							</div>
 							<div class="form-group">
@@ -49,29 +77,24 @@
 									<input name="pwd" type="password" placeholder="Password"
 										class="form-control input-height" /> </div>
 							</div>
-							<div class="form-group">
-								<div class="">
-									<input name="re-pwd" type="password" placeholder="Repeat Password"
-										class="form-control input-height" /> </div>
-							</div>
-							<div class="form-group">
-								<input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
-								<label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all
-									statements in <a href="#" class="term-service">Terms of service</a></label>
-							</div>
+							
 							<div class="form-group form-button">
-								<button class="btn btn-round btn-primary" name="signup" id="register">Register</button>
+								<input type="submit" class="btn btn-round btn-primary" name="signin" id="signin"></input>
 							</div>
 						</form>
-					</div>
-					<div class="signup-image">
-						<figure><img src="assets/img/pages/signup.jpg" alt="sing up image"></figure>
-						<a href="login.html" class="signup-image-link">I am already member</a>
+
+						<?php
+						echo $error;
+						?>
+						<div class="social-login">
+							<button class="draw new">Admin Login</button>
+						</div>
 					</div>
 				</div>
 			</div>
 		</section>
 	</div>
+
 	<!-- start js include path -->
 	<script src="assets/plugins/jquery/jquery.min.js"></script>
 	<!-- bootstrap -->
@@ -80,5 +103,5 @@
 </body>
 
 
-<!-- Mirrored from www.einfosoft.com/templates/admin/smart/source/light/sign_up.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 17 Dec 2022 06:35:07 GMT -->
+<!-- Mirrored from www.einfosoft.com/templates/admin/smart/source/light/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 17 Dec 2022 06:34:25 GMT -->
 </html>

@@ -1035,11 +1035,11 @@ div.dt-button:last-child {
 }
 
 .dataTable .row-details.row-details-close {
-  background: url(../img/datatable-row-openclose.html) no-repeat;
+  background: url(img/datatable-row-openclose.html) no-repeat;
 }
 
 .dataTable .row-details.row-details-open {
-  background: url(../img/datatable-row-openclose.html) 0 -23px no-repeat;
+  background: url(img/datatable-row-openclose.html) 0 -23px no-repeat;
 }
 
 .dataTable td .popover-content .btn-group {
@@ -1098,11 +1098,11 @@ div.dt-button:last-child {
   width: 60px;
 }
 td.details-control {
-  background: url("../img/details_open.png") no-repeat center center;
+  background: url("img/details_open.png") no-repeat center center;
   cursor: pointer;
 }
 tr.shown td.details-control {
-  background: url("../img/details_close.png") no-repeat center center;
+  background: url("img/details_close.png") no-repeat center center;
 }
 /*******************************
 	10. Dropzone
