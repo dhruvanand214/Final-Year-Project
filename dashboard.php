@@ -2,14 +2,16 @@
 
 session_start();
 
+if(!isset($_SESSION['IS_LOGIN'])){
+	header('location:index.php');
+}
+
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <!-- BEGIN HEAD -->
 
-
-<!-- Mirrored from www.einfosoft.com/templates/admin/smart/source/light/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 17 Dec 2022 06:33:33 GMT -->
 
 <head>
 	<meta charset="utf-8" />
@@ -45,8 +47,7 @@ session_start();
 </head>
 <!-- END HEAD -->
 
-<body
-	class="page-header-fixed sidemenu-closed-hidelogo page-content-white page-md header-white white-sidebar-color logo-indigo">
+<body class="page-header-fixed sidemenu-closed-hidelogo page-content-white page-md header-white white-sidebar-color logo-indigo">
 	<div class="page-wrapper">
 		<!-- start header -->
 		<?php include('header.php'); ?>
@@ -66,8 +67,7 @@ session_start();
 								<div class="page-title">Dashboard</div>
 							</div>
 							<ol class="breadcrumb page-breadcrumb pull-right">
-								<li><i class="fa fa-home"></i>&nbsp;<a class="parent-item"
-										href="index.html">Home</a>&nbsp;<i class="fa fa-angle-right"></i>
+								<li><i class="fa fa-home"></i>&nbsp;<a class="parent-item" href="index.html">Home</a>&nbsp;<i class="fa fa-angle-right"></i>
 								</li>
 								<li class="active">Dashboard</li>
 							</ol>
@@ -132,8 +132,7 @@ session_start();
 							<!-- /.col -->
 							<div class="col-xl-3 col-md-6 col-12">
 								<div class="info-box bg-b-pink">
-									<span class="info-box-icon push-bottom"><i
-											class="material-icons">monetization_on</i></span>
+									<span class="info-box-icon push-bottom"><i class="material-icons">monetization_on</i></span>
 									<div class="info-box-content">
 										<span class="info-box-text">IVth Year Students</span>
 										<span class="info-box-number">13,921</span>
@@ -157,8 +156,7 @@ session_start();
 						<div class="col-md-12 col-sm-12 col-12">
 							<div class="card">
 								<div class="card-body">
-									<div class="box-title"><small class="pull-right small-lbl-green"><i
-												class="far fa-arrow-alt-circle-up"></i> Good</small> Student Performance
+									<div class="box-title"><small class="pull-right small-lbl-green"><i class="far fa-arrow-alt-circle-up"></i> Good</small> Student Performance
 									</div>
 									<div class="mt-3">
 										<div class="stat-item">
@@ -182,13 +180,10 @@ session_start();
 							<div class="card-box">
 								<div class="card-head">
 									<header>Exam Toppers</header>
-									<button id="panel-button5"
-										class="mdl-button mdl-js-button mdl-button--icon pull-right"
-										data-upgraded=",MaterialButton">
+									<button id="panel-button5" class="mdl-button mdl-js-button mdl-button--icon pull-right" data-upgraded=",MaterialButton">
 										<i class="material-icons">more_vert</i>
 									</button>
-									<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
-										data-mdl-for="panel-button5">
+									<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" data-mdl-for="panel-button5">
 										<li class="mdl-menu__item"><i class="material-icons">assistant_photo</i>Action
 										</li>
 										<li class="mdl-menu__item"><i class="material-icons">print</i>Another action
@@ -300,12 +295,10 @@ session_start();
 							<div class="card-box">
 								<div class="card-head">
 									<header>Activity Feed</header>
-									<button id="feedMenu" class="mdl-button mdl-js-button mdl-button--icon pull-right"
-										data-upgraded=",MaterialButton">
+									<button id="feedMenu" class="mdl-button mdl-js-button mdl-button--icon pull-right" data-upgraded=",MaterialButton">
 										<i class="material-icons">more_vert</i>
 									</button>
-									<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
-										data-mdl-for="feedMenu">
+									<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" data-mdl-for="feedMenu">
 										<li class="mdl-menu__item"><i class="material-icons">assistant_photo</i>Action
 										</li>
 										<li class="mdl-menu__item"><i class="material-icons">print</i>Another action
@@ -318,12 +311,10 @@ session_start();
 									<ul class="feedBody">
 										<li class="active-feed">
 											<div class="feed-user-img">
-												<img src="assets/img/user/user1.jpg" class="img-radius "
-													alt="User-Profile-Image">
+												<img src="assets/img/user/user1.jpg" class="img-radius " alt="User-Profile-Image">
 											</div>
 											<h6>
-												<span class="feedLblStyle lblFileStyle">File</span> Sarah Smith <small
-													class="text-muted">6 hours ago</small>
+												<span class="feedLblStyle lblFileStyle">File</span> Sarah Smith <small class="text-muted">6 hours ago</small>
 											</h6>
 											<p class="m-b-15 m-t-15">
 												hii John, I have upload doc related to task.
@@ -331,12 +322,10 @@ session_start();
 										</li>
 										<li class="diactive-feed">
 											<div class="feed-user-img">
-												<img src="assets/img/user/user2.jpg" class="img-radius "
-													alt="User-Profile-Image">
+												<img src="assets/img/user/user2.jpg" class="img-radius " alt="User-Profile-Image">
 											</div>
 											<h6>
-												<span class="feedLblStyle lblTaskStyle">Task </span> Jalpa Joshi<small
-													class="text-muted">5 hours
+												<span class="feedLblStyle lblTaskStyle">Task </span> Jalpa Joshi<small class="text-muted">5 hours
 													ago</small>
 											</h6>
 											<p class="m-b-15 m-t-15">
@@ -345,8 +334,7 @@ session_start();
 										</li>
 										<li class="diactive-feed">
 											<div class="feed-user-img">
-												<img src="assets/img/user/user3.jpg" class="img-radius "
-													alt="User-Profile-Image">
+												<img src="assets/img/user/user3.jpg" class="img-radius " alt="User-Profile-Image">
 											</div>
 											<h6>
 												<span class="feedLblStyle lblCommentStyle">comment</span> Lina
@@ -358,8 +346,7 @@ session_start();
 										</li>
 										<li class="active-feed">
 											<div class="feed-user-img">
-												<img src="assets/img/user/user4.jpg" class="img-radius "
-													alt="User-Profile-Image">
+												<img src="assets/img/user/user4.jpg" class="img-radius " alt="User-Profile-Image">
 											</div>
 											<h6>
 												<span class="feedLblStyle lblReplyStyle">Reply</span> Jacob Ryan
@@ -371,12 +358,10 @@ session_start();
 										</li>
 										<li class="active-feed">
 											<div class="feed-user-img">
-												<img src="assets/img/user/user5.jpg" class="img-radius "
-													alt="User-Profile-Image">
+												<img src="assets/img/user/user5.jpg" class="img-radius " alt="User-Profile-Image">
 											</div>
 											<h6>
-												<span class="feedLblStyle lblFileStyle">File</span> Sarah Smith <small
-													class="text-muted">6 hours ago</small>
+												<span class="feedLblStyle lblFileStyle">File</span> Sarah Smith <small class="text-muted">6 hours ago</small>
 											</h6>
 											<p class="m-b-15 m-t-15">
 												hii John, I have upload doc related to task.
@@ -384,12 +369,10 @@ session_start();
 										</li>
 										<li class="diactive-feed">
 											<div class="feed-user-img">
-												<img src="assets/img/user/user6.jpg" class="img-radius "
-													alt="User-Profile-Image">
+												<img src="assets/img/user/user6.jpg" class="img-radius " alt="User-Profile-Image">
 											</div>
 											<h6>
-												<span class="feedLblStyle lblTaskStyle">Task </span> Jalpa Joshi<small
-													class="text-muted">5 hours
+												<span class="feedLblStyle lblTaskStyle">Task </span> Jalpa Joshi<small class="text-muted">5 hours
 													ago</small>
 											</h6>
 											<p class="m-b-15 m-t-15">
@@ -404,8 +387,7 @@ session_start();
 						<div class="col-lg-6 col-md-3 col-sm-12 col-12">
 							<div class="card">
 								<div class="card-body">
-									<div class="box-title"><small class="pull-right small-lbl-green"><i
-												class="far fa-arrow-alt-circle-up"></i> Good
+									<div class="box-title"><small class="pull-right small-lbl-green"><i class="far fa-arrow-alt-circle-up"></i> Good
 											Performance</small>Student Result</div>
 									<div class="mt-3">
 										<div class="stat-item">
@@ -435,15 +417,12 @@ session_start();
 							<div class="card-box">
 								<div class="card-head">
 									<header>Todo List</header>
-									<button id="panel-button"
-										class="mdl-button mdl-js-button mdl-button--icon pull-right"
-										data-upgraded=",MaterialButton">
+									<button id="panel-button" class="mdl-button mdl-js-button mdl-button--icon pull-right" data-upgraded=",MaterialButton">
 										<i class="material-icons">more_vert</i>
 									</button>
-									<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
-										data-mdl-for="panel-button">
+									<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" data-mdl-for="panel-button">
 										<li class="mdl-menu__item">
-											
+
 										</li>
 										<li class="mdl-menu__item"><i class="material-icons">print</i>Another action
 										</li>
@@ -454,27 +433,47 @@ session_start();
 								</div>
 								<div class="card-body ">
 									<div class="container">
-										<div class="form">
-											<input type="text" class="input" />
-											<input type="submit" class="add" value="Add Task" />
-										</div>
+
+										<?php
+
+										include('db.php');
+
+
+										if ($_SESSION['ROLE'] == "admin") {
+
+										?>
+											<div class="form">
+												<input type="text" class="input" />
+												<input type="submit" class="add" value="Add Task" />
+											</div>
+
+										<?php } ?>
+
 										<div class="tasks"></div>
-										<div class="delete-all">Delete all</div>
-										</div>
+
+										<?php
+
+										if ($_SESSION['ROLE'] == "admin") {
+
+										?>
+											<div class="delete-all">Delete all</div>
+
+										<?php } ?>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 
-				
+
 				</div>
 			</div>
 			<!-- end page content -->
 			<!-- start chat sidebar -->
-			
+
 		</div>
 		<!-- end page container -->
-		
+
 	</div>
 	<!-- start js include path -->
 	<script src="assets/plugins/jquery/jquery.min.js"></script>

@@ -1,15 +1,11 @@
-<?php
 
-session_start();
-
-?>
 
 <?php
 
 include('db.php');
 
 
-if($_SESSION['ROLE'] == 1){
+if($_SESSION['ROLE'] == "admin"){
     
 ?>
 
@@ -28,7 +24,7 @@ if($_SESSION['ROLE'] == 1){
 							
 
 							<li class="nav-item">
-								<a href="event.html" class="nav-link nav-toggle"> <i data-feather="calendar"></i>
+								<a href="event_manage.php" class="nav-link nav-toggle"> <i data-feather="calendar"></i>
 									<span class="title">Event Management</span>
 								</a>
 							</li>
@@ -38,7 +34,7 @@ if($_SESSION['ROLE'] == 1){
 								</a>
 								<ul class="sub-menu">
 									<li class="nav-item">
-										<a href="all_Faculty.html" class="nav-link "> <span class="title">All
+										<a href="all_faculty.php" class="nav-link "> <span class="title">All
 												Faculty</span>
 										</a>
 									</li>
@@ -194,7 +190,7 @@ if($_SESSION['ROLE'] == 1){
 					</div>
 				</div>
 			</div>
-            <?php } elseif($_SESSION['ROLE'] == 2){ ?>
+            <?php } elseif($_SESSION['ROLE'] == "faculty"){ ?>
                 <div class="sidebar-container">
 				<div class="sidemenu-container navbar-collapse collapse fixed-menu">
 					<div id="remove-scroll" class="left-sidemenu">
@@ -209,7 +205,7 @@ if($_SESSION['ROLE'] == 1){
 							
 
 							<li class="nav-item">
-								<a href="event.html" class="nav-link nav-toggle"> <i data-feather="calendar"></i>
+								<a href="event_manage.php" class="nav-link nav-toggle"> <i data-feather="calendar"></i>
 									<span class="title">Event Management</span>
 								</a>
 							</li>
@@ -355,7 +351,7 @@ if($_SESSION['ROLE'] == 1){
 					</div>
 				</div>
 			</div>
-                <?php } elseif($_SESSION['ROLE'] == 3){ ?>
+                <?php } elseif($_SESSION['ROLE'] == "student"){ ?>
                     <div class="sidebar-container">
 				<div class="sidemenu-container navbar-collapse collapse fixed-menu">
 					<div id="remove-scroll" class="left-sidemenu">
@@ -370,7 +366,7 @@ if($_SESSION['ROLE'] == 1){
 							
 
 							<li class="nav-item">
-								<a href="event.html" class="nav-link nav-toggle"> <i data-feather="calendar"></i>
+								<a href="event_manage.php" class="nav-link nav-toggle"> <i data-feather="calendar"></i>
 									<span class="title">Event Management</span>
 								</a>
 							</li>

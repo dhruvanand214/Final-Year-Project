@@ -1,0 +1,66 @@
+.club_content{
+    display: flex;
+    height: 86vh;
+    flex-direction: column;
+    margin-top: 50px;
+    justify-content: space-evenly;
+}
+
+.club_recent{
+    height: 40%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.event_banner{
+    flex: auto;
+    height: 100%;
+    width: 100%;
+}
+
+.event_name{
+    flex: auto;
+    text-align: center;
+}
+
+.event_link{
+    flex: auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* .club_old{
+    display: flex;
+    height: 40%;
+} */
+
+.old1{
+    flex: auto;
+}
+
+.old2{
+    flex: auto;
+}
+
+.old3{
+    flex: auto;
+}
+
+.event_edit{
+    display: flex;
+}
+
+.tblEditBtn i{
+    height: 25%;
+}
+
+.tblDelBtn i{
+    height: 25% !important;
+}
+
+.edit-body{
+    margin-top: 50px !important;
+    background-color: white !important;
+}
+

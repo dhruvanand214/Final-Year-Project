@@ -4,6 +4,7 @@ if(!isset($_SESSION['IS_LOGIN'])){
     header('location:index.php');
     die;
 }
+
 ?>
 
 <div class="page-header navbar navbar-fixed-top">

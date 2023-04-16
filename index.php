@@ -62,7 +62,7 @@ if(isset($_POST['signin'])){
 				<div class="signin-content">
 					<div class="signin-image">
 						<figure><img src="assets/img/favicon/logo-half.png" alt="sing up image"></figure>
-						<a href="sign_up.html" class="signup-image-link">Create an account</a>
+						<!-- <a href="sign_up.html" class="signup-image-link">Create an account</a> -->
 					</div>
 					<div class="signin-form">
 						<h2 class="form-title">Students Login</h2>
@@ -86,9 +86,9 @@ if(isset($_POST['signin'])){
 						<?php
 						echo $error;
 						?>
-						<div class="social-login">
+						<!-- <div class="social-login">
 							<button class="draw new">Admin Login</button>
-						</div>
+						</div> -->
 					</div>
 				</div>
 			</div>
