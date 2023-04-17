@@ -93,7 +93,7 @@ session_start();
 
                                 $query = mysqli_query($con, $q);
 
-                                $displayquery = "select * from gfg ORDER BY ID DESC LIMIT 1";
+                                $displayquery = "select * from mind_opt ORDER BY ID DESC LIMIT 1";
                                 $querydisplay = mysqli_query($con, $displayquery);
 
 
@@ -135,7 +135,7 @@ session_start();
 
                                                 <?php
 
-                                                $displayquery2 = "select * from gfg WHERE ID NOT IN (SELECT MAX(ID) from gfg) ORDER BY ID DESC LIMIT 3";
+                                                $displayquery2 = "select * from mind_opt WHERE ID NOT IN (SELECT MAX(ID) from mind_opt) ORDER BY ID DESC LIMIT 3";
                                                 $querydisplay2 = mysqli_query($con, $displayquery2);
 
 

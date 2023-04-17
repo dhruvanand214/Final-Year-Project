@@ -2,7 +2,6 @@
 
 session_start();
 
-
 ?>
 
 <!DOCTYPE html>
@@ -41,7 +40,7 @@ session_start();
     <link href="assets/plugins/sweet-alert/sweetalert2.min.css" rel="stylesheet">
     <!-- favicon -->
     <link rel="shortcut icon" href="assets/img/favicon/logo-half.png" />
-    <link href="assets/css/clubs.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="assets/css/coding.css">
 </head>
 <!-- END HEAD -->
 
@@ -59,117 +58,56 @@ session_start();
             <!-- start page content -->
             <div class="page-content-wrapper">
                 <div class="page-content">
-                    <a href="edit_gfg.php" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 m-r-20 btn-circle btn-primary" style="margin-top: 4rem !important;">Edit</a>
-                    <div class="club_content">
-
-                        <?php
-
-                        require("db.php");
-
-                        if (isset($_POST['submit'])) {
-                            $username = $_POST['username'];
-                            $winner = $_POST['winner'];
-                            $link = $_POST['link'];
-                            $date = $_POST['date'];
-                            $files = $_FILES['image'];
-
-                            // print_r($username);
-                            // print_r($files);
-
-                            $filename = $files['name'];
-                            $fileerror = $files['error'];
-                            $filetmp = $files['tmp_name'];
-
-                            $fileext = explode('.', $filename);
-                            $filecheck = strtolower(end($fileext));
-
-                            $fileextstored = array('png', 'jpg', 'jpeg');
-
-                            if (in_array($filecheck, $fileextstored)) {
-                                $destinationfile = 'event_images/' . $filename;
-                                move_uploaded_file($filetmp, $destinationfile);
-
-                                $q = "INSERT INTO `gfg`(`Name`, `Banner`, `Winner`, `Link`, `Date`) VALUES ('$username', '$destinationfile', '$winner', '$link', '$date')";
-
-                                $query = mysqli_query($con, $q);
-
-                                $displayquery = "select * from knack ORDER BY ID DESC LIMIT 1";
-                                $querydisplay = mysqli_query($con, $displayquery);
+                    <div class="page-bar">
+                        <div class="courses-container">
 
 
+<?php
 
-                                while ($result = mysqli_fetch_array($querydisplay)) {
+include('db.php');
+$selectquery = "select * from coding";
+                                                $query = mysqli_query($con, $selectquery);
+                                                $nums = mysqli_num_rows($query);
 
-                        ?>
+                                                $i = 0;
 
-
-
-                                    <div class="club_recent">
-                                        <div><img src=" <?php echo $result['Banner']; ?>" alt="" class="event_banner"></div>
-                                        <h3 class="event_name"><?php echo $result['Name']; ?></h3>
-                                        <h5 class="event_link"><a href="<?php echo $result['Link']; ?>">Fill The Form</a></h5>
-                                    <?php
-
-                                }
-
-
-                                    ?>
-
-                                    </div>
+                                                while($res = mysqli_fetch_array($query)){
+                                                    
+                                                    $i = $i+1;
+                                                    ?>
+                                                
 
 
+                            <div class="course">
+                                <div class="course-preview">
+                                    <h6>Problem :- <?php echo $i ?></h6>
+                                    <h2><?php echo $res['Heading'] ?></h2>
+                                    <a href="#">Discussion <i class="fas fa-chevron-right"></i></a>
+                                </div>
+                                <div class="course-info">
+                                    
+                                    <h6>
+                                        Array
+                                    </h6>
+                                    <h2><?php echo $res['Discription'] ?></h2>
 
+                                    <a href="<?php echo $res['Prob_link'] ?>" target="_blank"><button class="btn_code" id="solveBtn">Solve Problem</button></a>
 
-                                    <div class="club_old">
+                                    <button class="btn2" id="solveBtn2" data-solution-link="https://www.jdoodle.com/embed/v0/688A">Solution
+                                    </button>
+                                </div>
+                            </div>
 
-                                        <table class="table table-striped table-bordered table-hover table-checkable order-column valign-middle" id="example4">
-                                            <thead>
-                                                <tr>
-                                                    <th>Event Name</th>
-                                                    <th>Event Date</th>
-                                                    <th>Event Winner</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-
-
-                                                <?php
-
-                                                $displayquery2 = "select * from knack WHERE ID NOT IN (SELECT MAX(ID) from knack) ORDER BY ID DESC LIMIT 3";
-                                                $querydisplay2 = mysqli_query($con, $displayquery2);
-
-
-
-                                                while ($result = mysqli_fetch_array($querydisplay2)) {
-
-
-                                                    echo "
-                                                    <tr class='odd gradeX'>
-                                                        <td>" . $result['Name'] . "</td>
-                                                        <td>" . $result['Date'] . "</td>
-                                                        <td>" . $result['Winner'] . "</td>
-                                                    </tr>
-                                                    ";
+                            
+<?php
                                                 }
                                                 ?>
 
 
-
-                                            </tbody>
-                                        </table>
-
-                                    </div>
-
+                        </div>
                     </div>
 
 
-
-
-            <?php
-
-                            }
-                        }
-            ?>
 
                 </div>
             </div>

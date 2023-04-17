@@ -6218,7 +6218,7 @@ function () {
       if (clipboardData && clipboardData.items && clipboardData.items.length) {
         var item = clipboardData.items.length > 1 ? clipboardData.items[1] : lists.head(clipboardData.items);
 
-        if (item.kind === 'file' && item.type.indexOf('image/index.html') !== -1) {
+        if (item.kind === 'file' && item.type.indexOf('image/dashboard.php') !== -1) {
           // paste img file
           this.context.invoke('editor.insertImagesOrCallback', [item.getAsFile()]);
           event.preventDefault();

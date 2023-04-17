@@ -93,7 +93,7 @@ session_start();
 
                                 $query = mysqli_query($con, $q);
 
-                                $displayquery = "select * from event ORDER BY ID DESC LIMIT 1";
+                                $displayquery = "select * from spark ORDER BY ID DESC LIMIT 1";
                                 $querydisplay = mysqli_query($con, $displayquery);
 
 
@@ -135,7 +135,7 @@ session_start();
 
                                                 <?php
 
-                                                $displayquery2 = "select * from event WHERE ID NOT IN (SELECT MAX(ID) from event) ORDER BY ID DESC LIMIT 3";
+                                                $displayquery2 = "select * from spark WHERE ID NOT IN (SELECT MAX(ID) from spark) ORDER BY ID DESC LIMIT 3";
                                                 $querydisplay2 = mysqli_query($con, $displayquery2);
 
 

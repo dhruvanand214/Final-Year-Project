@@ -1,9 +1,15 @@
+<?php
+
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <!-- BEGIN HEAD -->
 
 
-<!-- Mirrored from www.einfosoft.com/templates/admin/smart/source/light/edit_Forms.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 17 Dec 2022 06:34:37 GMT -->
+<!-- Mirrored from www.einfosoft.com/templates/admin/smart/source/light/add_student.php by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 17 Dec 2022 06:34:34 GMT -->
 <head>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -35,6 +41,7 @@
 	<link rel="stylesheet" href="assets/plugins/flatpicker/css/flatpickr.min.css" />
 	<!-- favicon -->
 	<link rel="shortcut icon" href="assets/img/favicon/logo-half.png" />
+	<link rel="stylesheet" href="assets/css/list_cards.css">
 </head>
 <!-- END HEAD -->
 
@@ -42,338 +49,14 @@
 	class="page-header-fixed sidemenu-closed-hidelogo page-content-white page-md header-white white-sidebar-color logo-indigo">
 	<div class="page-wrapper">
 		<!-- start header -->
-		<div class="page-header navbar navbar-fixed-top">
-			<div class="page-header-inner ">
-				<!-- logo start -->
-				<div class="page-logo">
-					<a href="dashboard.php">
-
-						<span class="logo-default">CS Portal</span> </a>
-				</div>
-				<!-- logo end -->
-				<ul class="nav navbar-nav navbar-left in">
-					<li><a href="#" class="menu-toggler sidebar-toggler"><i data-feather="menu"></i></a></li>
-				</ul>
-				<form class="search-form-opened" action="#" method="GET">
-					<div class="input-group">
-						<input type="text" class="form-control" placeholder="Search..." name="query">
-						<span class="input-group-btn">
-							<a href="javascript:;" class="btn submit">
-								<i class="icon-magnifier"></i>
-							</a>
-						</span>
-					</div>
-				</form>
-				<!-- start mobile menu -->
-				<a class="menu-toggler responsive-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">
-					<span></span>
-				</a>
-				<!-- end mobile menu -->
-				<!-- start header menu -->
-				<div class="top-menu">
-					<ul class="nav navbar-nav pull-right">
-						<li><a class="fullscreen-btn"><i data-feather="maximize"></i></a></li>
-						<!-- start notification dropdown -->
-						<li class="dropdown dropdown-extended dropdown-notification" id="header_notification_bar">
-							<a class="dropdown-toggle" data-bs-toggle="dropdown" data-hover="dropdown"
-								data-close-others="true">
-								<i data-feather="bell"></i>
-								<span class="badge headerBadgeColor1"> 6 </span>
-							</a>
-							<ul class="dropdown-menu">
-								<li class="external">
-									<h3><span class="bold">Notifications</span></h3>
-									<span class="notification-label purple-bgcolor">New 6</span>
-								</li>
-								<li>
-									<ul class="dropdown-menu-list small-slimscroll-style" data-handle-color="#637283">
-										<li>
-											<a href="javascript:;">
-												<span class="time">just now</span>
-												<span class="details">
-													<span class="notification-icon circle deepPink-bgcolor"><i
-															class="fa fa-check"></i></span>
-													Congratulations!. </span>
-											</a>
-										</li>
-										<li>
-											<a href="javascript:;">
-												<span class="time">3 mins</span>
-												<span class="details">
-													<span class="notification-icon circle purple-bgcolor"><i
-															class="fa fa-user o"></i></span>
-													<b>John Micle </b>is now following you. </span>
-											</a>
-										</li>
-										<li>
-											<a href="javascript:;">
-												<span class="time">7 mins</span>
-												<span class="details">
-													<span class="notification-icon circle blue-bgcolor"><i
-															class="fa fa-comments-o"></i></span>
-													<b>Sneha Jogi </b>sent you a message. </span>
-											</a>
-										</li>
-										<li>
-											<a href="javascript:;">
-												<span class="time">12 mins</span>
-												<span class="details">
-													<span class="notification-icon circle pink"><i
-															class="fa fa-heart"></i></span>
-													<b>Ravi Patel </b>like your photo. </span>
-											</a>
-										</li>
-										<li>
-											<a href="javascript:;">
-												<span class="time">15 mins</span>
-												<span class="details">
-													<span class="notification-icon circle yellow"><i
-															class="fa fa-warning"></i></span> Warning! </span>
-											</a>
-										</li>
-										<li>
-											<a href="javascript:;">
-												<span class="time">10 hrs</span>
-												<span class="details">
-													<span class="notification-icon circle red"><i
-															class="fa fa-times"></i></span> Application error. </span>
-											</a>
-										</li>
-									</ul>
-									<div class="dropdown-menu-footer">
-										<a href="javascript:void(0)"> All notifications </a>
-									</div>
-								</li>
-							</ul>
-						</li>
-						<!-- end notification dropdown -->
-
-						<!-- start manage user dropdown -->
-						<li class="dropdown dropdown-user">
-							<a class="dropdown-toggle" data-bs-toggle="dropdown" data-hover="dropdown"
-								data-close-others="true">
-								<img alt="" class="img-circle " src="..assets/img/dp.jpg" />
-								<span class="username username-hide-on-mobile"> XYZ
-							</a>
-							<ul class="dropdown-menu dropdown-menu-default">
-								<li>
-									<a href="user_profile.html">
-										<i class="icon-user"></i> Profile </a>
-								</li>
-								<li>
-									<a href="#">
-										<i class="icon-settings"></i> Settings
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<i class="icon-directions"></i> Help
-									</a>
-								</li>
-								<li class="divider"> </li>
-								<li>
-									<a href="lock_screen.html">
-										<i class="icon-lock"></i> Lock
-									</a>
-								</li>
-								<li>
-									<a href="login.html">
-										<i class="icon-logout"></i> Log Out </a>
-								</li>
-							</ul>
-						</li>
-						<!-- end manage user dropdown -->
-						<li class="dropdown dropdown-quick-sidebar-toggler">
-							<a id="headerSettingButton" class="mdl-button mdl-js-button mdl-button--icon pull-right"
-								data-upgraded=",MaterialButton">
-								<i class="material-icons">more_vert</i>
-							</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
+		<?php include('header.php'); ?>
 		<!-- end header -->
-		
+
+		<!-- end color quick setting -->
 		<!-- start page container -->
 		<div class="page-container">
 			<!-- start sidebar menu -->
-			<div class="sidebar-container">
-				<div class="sidemenu-container navbar-collapse collapse fixed-menu">
-					<div id="remove-scroll" class="left-sidemenu">
-						<ul class="sidemenu  page-header-fixed slimscroll-style" data-keep-expanded="false"
-							data-auto-scroll="true" data-slide-speed="200" style="padding-top: 20px">
-							<li class="sidebar-toggler-wrapper hide">
-								<div class="sidebar-toggler">
-									<span></span>
-								</div>
-							</li>
-							<!-- <li class="sidebar-user-panel">
-								<div class="sidebar-user">
-									<div class="sidebar-user-picture">
-										<img alt="image" src="assets/img/dp.jpg">
-									</div>
-									<div class="sidebar-user-details">
-										<div class="user-name">Sneha Patel</div>
-										<div class="user-role">Administrator</div>
-									</div>
-								</div>
-							</li> -->
-
-							<li class="nav-item">
-								<a href="event.html" class="nav-link nav-toggle"> <i data-feather="calendar"></i>
-									<span class="title">Event Management</span>
-								</a>
-							</li>
-							<li class="nav-item">
-								<a href="#" class="nav-link nav-toggle"> <i data-feather="user"></i>
-									<span class="title">Faculty</span> <span class="arrow"></span>
-								</a>
-								<ul class="sub-menu">
-									<li class="nav-item">
-										<a href="all_Faculty.html" class="nav-link "> <span class="title">All
-												Faculty</span>
-										</a>
-									</li>
-									<li class="nav-item">
-										<a href="add_Faculty.html" class="nav-link "> <span class="title">Add
-												Faculty</span>
-										</a>
-									</li>
-
-									<li class="nav-item">
-										<a href="edit_Faculty.html" class="nav-link "> <span class="title">Edit
-												Faculty</span>
-										</a>
-									</li>
-									<li class="nav-item">
-										<a href="Faculty_profile.html" class="nav-link "> <span class="title">About
-												Faculty</span>
-										</a>
-									</li>
-								</ul>
-							</li>
-							<li class="nav-item">
-								<a href="#" class="nav-link nav-toggle"><i data-feather="users"></i>
-									<span class="title">Students</span><span class="arrow"></span></a>
-								<ul class="sub-menu">
-									<li class="nav-item">
-										<a href="all_students.php" class="nav-link "> <span class="title">All
-												Students</span>
-										</a>
-									</li>
-									<li class="nav-item">
-										<a href="add_student.php" class="nav-link "> <span class="title">Add
-												Student</span>
-										</a>
-									</li>
-
-									<li class="nav-item">
-										<a href="edit_student.html" class="nav-link "> <span class="title">Edit
-												Student</span>
-										</a>
-									</li>
-									<li class="nav-item">
-										<a href="student_profile.html" class="nav-link "> <span class="title">About
-												Student</span>
-										</a>
-									</li>
-								</ul>
-							</li>
-
-							<li class="nav-item">
-								<a href="#" class="nav-link nav-toggle"> <i data-feather="book-open"></i>
-									<span class="title">Study Material</span> <span class="arrow"></span>
-								</a>
-								<ul class="sub-menu">
-									<li class="nav-item">
-										<a href="all_study_material.html" class="nav-link "> <span class="title">All Study
-												Material</span>
-										</a>
-									</li>
-									<li class="nav-item">
-										<a href="add_study_material.html" class="nav-link "> <span class="title">Add Study
-												Material</span>
-										</a>
-									</li>
-
-									<li class="nav-item">
-										<a href="edit_library.html" class="nav-link "> <span class="title">Edit
-												Study Material</span>
-										</a>
-									</li>
-								</ul>
-							</li>
-
-
-							<li class="nav-item">
-								<a href="#" class="nav-link nav-toggle"> <i data-feather="coffee"></i>
-									<span class="title">Forms</span> <span class="arrow"></span>
-								</a>
-								<ul class="sub-menu">
-									<li class="nav-item">
-										<a href="all_Forms.html" class="nav-link "> <span class="title">All
-												Forms</span>
-										</a>
-									</li>
-									<li class="nav-item">
-										<a href="add_Forms.html" class="nav-link "> <span class="title">Add
-												Forms</span>
-										</a>
-									</li>
-
-									<li class="nav-item">
-										<a href="edit_Forms.html" class="nav-link "> <span class="title">Edit
-												Forms</span>
-										</a>
-									</li>
-								</ul>
-							</li>
-
-
-
-
-
-
-
-
-
-
-							<li class="nav-item">
-								<a href="javascript:;" class="nav-link nav-toggle"> <i data-feather="anchor"></i>
-									<span class="title">Extra Content(To be named</span>
-									<span class="arrow"></span>
-								</a>
-								<ul class="sub-menu">
-									<li class="nav-item  ">
-										<a href="login.html" class="nav-link "> <span class="title">Login</span>
-										</a>
-									</li>
-									<li class="nav-item  ">
-										<a href="sign_up.html" class="nav-link "> <span class="title">Sign Up</span>
-										</a>
-									</li>
-									<li class="nav-item  ">
-										<a href="forgot_password.html" class="nav-link "> <span class="title">Forgot
-												Password</span>
-										</a>
-									</li>
-									<li class="nav-item"><a href="user_profile.html" class="nav-link "><span
-												class="title">Profile</span>
-										</a>
-									</li>
-									<li class="nav-item">
-										<a href="contact.html" class="nav-link "> <span class="title">Contact Us</span>
-										</a>
-									</li>
-
-								</ul>
-							</li>
-
-						</ul>
-					</div>
-				</div>
-			</div>
+			<?php include('sidebar.php'); ?>
 			<!-- end sidebar menu -->
 			<!-- start page content -->
 			<div class="page-content-wrapper">
@@ -381,92 +64,120 @@
 					<div class="page-bar">
 						<div class="page-title-breadcrumb">
 							<div class=" pull-left">
-								<div class="page-title">Edit Forms</div>
+								<div class="page-title">Add Student</div>
 							</div>
-							<ol class="breadcrumb page-breadcrumb pull-right">
-								<li><i class="fa fa-home"></i>&nbsp;<a class="parent-item"
-										href="dashboard.php">Home</a>&nbsp;<i class="fa fa-angle-right"></i>
-								</li>
-								<li><a class="parent-item" href="#">Forms</a>&nbsp;<i class="fa fa-angle-right"></i>
-								</li>
-								<li class="active">Edit Forms</li>
-							</ol>
+							
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-sm-12">
 							<div class="card-box">
 								<div class="card-head">
-									<header>Edit Forms</header>
-									<button id="panel-button"
-										class="mdl-button mdl-js-button mdl-button--icon pull-right"
-										data-upgraded=",MaterialButton">
-										<i class="material-icons">more_vert</i>
-									</button>
-									<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
-										data-mdl-for="panel-button">
-										<li class="mdl-menu__item"><i class="material-icons">assistant_photo</i>Action
-										</li>
-										<li class="mdl-menu__item"><i class="material-icons">print</i>Another action
-										</li>
-										<li class="mdl-menu__item"><i class="material-icons">favorite</i>Something else
-											here</li>
-									</ul>
+									<header>Basic Information</header>
+									
 								</div>
+                                <form action="" method="post">
 								<div class="card-body row">
-									<div class="col-lg-12 p-t-20">
+									<div class="col-lg-6 p-t-20">
 										<div
 											class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-											<input class="mdl-textfield__input" type="text" value="christmas Forms"
-												id="txttitle">
-											<label class="mdl-textfield__label">Title</label>
+											<input class="mdl-textfield__input" type="text" id="txtFirstName" name="name">
+											<label class="mdl-textfield__label">Name</label>
+										</div>
+									</div>
+									
+									<div class="col-lg-6 p-t-20">
+										<div
+											class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+											<input class="mdl-textfield__input" type="text" id="txtRollNo" name="roll_no">
+											<label class="mdl-textfield__label">Roll No</label>
+										</div>
+									</div>
+
+									<div class="col-lg-6 p-t-20">
+										<div
+											class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+											<input class="mdl-textfield__input" type="email" id="txtemail" name="email">
+											<label class="mdl-textfield__label">Email</label>
+											<span class="mdl-textfield__error">Enter Valid Email Address!</span>
+										</div>
+									</div>
+									<div class="col-lg-6 p-t-20">
+										<div
+											class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+											<input class="mdl-textfield__input" type="date" id="date" name="dob">
+											<label class="mdl-textfield__label">Date of Birth</label>
 										</div>
 									</div>
 									<div class="col-lg-6 p-t-20">
 										<div
 											class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height txt-full-width">
-											<input class="mdl-textfield__input" type="text" id="list2"
-												value="Public Forms" readonly tabIndex="-1">
+											<input class="mdl-textfield__input" type="text" id="list2" value="" readonly
+												tabIndex="-1" name="section">
 											<label for="list2" class="pull-right margin-0">
 												<i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
 											</label>
-											<label for="list2" class="mdl-textfield__label">Forms Types</label>
+											<label for="list2" class="mdl-textfield__label">Section</label>
 											<ul data-mdl-for="list2" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
-												<li class="mdl-menu__item" data-val="DE">Public Forms</li>
-												<li class="mdl-menu__item" data-val="BY">Forms By University</li>
+												<li class="mdl-menu__item" data-val="DE">CS-1</li>
+												<li class="mdl-menu__item" data-val="BY">CS-2</li>
+												<li class="mdl-menu__item" data-val="BY">CS-3</li>
+												<li class="mdl-menu__item" data-val="BY">CS-4</li>
 											</ul>
 										</div>
 									</div>
+									<!-- <div class="col-lg-6 p-t-20">
+										<div
+											class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height txt-full-width">
+											<input class="mdl-textfield__input" type="text" id="sample2" value=""
+												readonly tabIndex="-1">
+											<label for="sample2" class="pull-right margin-0">
+												<i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
+											</label>
+											<label for="sample2" class="mdl-textfield__label">Gender</label>
+											<ul data-mdl-for="sample2"
+												class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+												<li class="mdl-menu__item" data-val="DE">Male</li>
+												<li class="mdl-menu__item" data-val="BY">Female</li>
+											</ul>
+										</div>
+									</div> -->
 									<div class="col-lg-6 p-t-20">
 										<div
 											class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-											<input class="mdl-textfield__input" type="text" value="2017-12-24"
-												id="date">
-											<label class="mdl-textfield__label">Forms Start Date</label>
+											<input class="mdl-textfield__input" type="text"
+												pattern="-?[0-9]*(\.[0-9]+)?" id="text5" name="mob_no">
+											<label class="mdl-textfield__label" for="text5">Mobile Number</label>
+											<span class="mdl-textfield__error">Number required!</span>
 										</div>
 									</div>
+									
 									<div class="col-lg-6 p-t-20">
 										<div
 											class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-											<input class="mdl-textfield__input" type="text" value="2017-12-31"
-												id="date1">
-											<label class="mdl-textfield__label">Forms End Date</label>
+											<input class="mdl-textfield__input" type="text"
+												pattern="-?[0-9]*(\.[0-9]+)?" id="txtPNo" name="par_no">
+											<label class="mdl-textfield__label" for="txtPNo">Parents Mobile
+												Number</label>
+											<span class="mdl-textfield__error">Number required!</span>
 										</div>
 									</div>
-									<div class="col-lg-12 p-t-20">
-										<div class="mdl-textfield mdl-js-textfield txt-full-width">
-											<textarea class="mdl-textfield__input" rows="4"
-												id="text7">Forms because its Christmas </textarea>
-											<label class="mdl-textfield__label" for="text7">Forms Details</label>
+									
+									<div class="col-lg-6 p-t-20">
+										<div
+											class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+											<input class="mdl-textfield__input" type="text" name="col_id">
+											<label class="mdl-textfield__label">College ID</label>
 										</div>
 									</div>
+									
 									<div class="col-lg-12 p-t-20 text-center">
-										<button type="button"
-											class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 m-r-20 btn-circle btn-primary">Submit</button>
+                                    <input type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 m-r-20 btn-circle btn-primary" name="submit" value="Submit">
 										<button type="button"
 											class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 btn-circle btn-danger">Cancel</button>
 									</div>
 								</div>
+                                </form>
 							</div>
 						</div>
 					</div>
@@ -749,16 +460,7 @@
 			<!-- end chat sidebar -->
 		</div>
 		<!-- end page container -->
-		<!-- start footer -->
-		<div class="page-footer">
-			<div class="page-footer-inner"> 2017 &copy; Smart University Theme By
-				<a href="mailto:redstartheme@gmail.com" target="_top" class="makerCss">Redstar Theme</a>
-			</div>
-			<div class="scroll-to-top">
-				<i class="icon-arrow-up"></i>
-			</div>
-		</div>
-		<!-- end footer -->
+		
 	</div>
 	<!-- start js include path -->
 	<script src="assets/plugins/jquery/jquery.min.js"></script>
@@ -782,7 +484,42 @@
 	<script src="assets/plugins/dropzone/dropzone-call.js"></script>
 	<!-- end js include path -->
 </body>
-
-
-<!-- Mirrored from www.einfosoft.com/templates/admin/smart/source/light/edit_Forms.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 17 Dec 2022 06:34:37 GMT -->
 </html>
+
+<?php
+
+include('db.php');
+
+if(isset($_POST['submit'])){
+    $name = $_POST['name'];
+    $rollno = $_POST['roll_no'];
+    $dob = $_POST['dob'];
+    $email = $_POST['email'];
+    $section = $_POST['section'];
+    $mobno = $_POST['mob_no'];
+    $parno = $_POST['par_no'];
+    $collid = $_POST['col_id'];
+
+    $insertquery = "INSERT INTO `students_second`(`Roll_No`, `Name`, `Section`, `Mobile`, `Email`, `Col_ID`, `DOB`, `Par_No`) VALUES ('$rollno','$name','$section','$mobno','$email','$collid','$dob','$parno')";
+
+    $res = mysqli_query($con, $insertquery);
+
+    if($res){
+        ?>
+        <script>
+            alert("Data Inserted");
+        </script>
+        <?php
+    }
+    else{
+        ?>
+        <script>
+            alert("Data Not Inserted");
+        </script>
+        <?php
+
+    }
+    }
+
+
+?>

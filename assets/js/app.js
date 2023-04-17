@@ -14,11 +14,11 @@ var App = (function () {
 
   var assetsPath = "";
 
-  var globalImgPath = "img/index.html";
+  var globalImgPath = "img/dashboard.php";
 
-  var globalPluginsPath = "global/plugins/index.html";
+  var globalPluginsPath = "global/plugins/dashboard.php";
 
-  var globalCssPath = "css/index.html";
+  var globalCssPath = "css/dashboard.php";
 
   /************* Setting for IE ****************/
   var handleInit = function () {

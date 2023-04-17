@@ -61,12 +61,12 @@ if($_SESSION['ROLE'] == "admin"){
 									<span class="title">Students</span><span class="arrow"></span></a>
 								<ul class="sub-menu">
 									<li class="nav-item">
-										<a href="all_students.html" class="nav-link "> <span class="title">All
+										<a href="all_students.php" class="nav-link "> <span class="title">All
 												Students</span>
 										</a>
 									</li>
 									<li class="nav-item">
-										<a href="add_student.html" class="nav-link "> <span class="title">Add
+										<a href="add_student.php" class="nav-link "> <span class="title">Add
 												Student</span>
 										</a>
 									</li>
@@ -149,7 +149,26 @@ if($_SESSION['ROLE'] == "admin"){
 
 
 
-
+							<li class="nav-item">
+								<a href="#" class="nav-link nav-toggle"><i data-feather="users"></i>
+									<span class="title">Coding Section</span><span class="arrow"></span></a>
+								<ul class="sub-menu">
+									<li class="nav-item">
+										<a href="coding.php" class="nav-link "> <span class="title">Coding Problems</span>
+										</a>
+									</li>
+									<li class="nav-item">
+										<a href="resources.php" class="nav-link "> <span class="title">Development Resources</span>
+										</a>
+									</li>
+									<li class="nav-item">
+										<a href="add_code.php" class="nav-link "> <span class="title">Add Problem</span>
+										</a>
+									</li>
+									
+								</ul>
+								
+							</li>
 
 
 
@@ -232,7 +251,7 @@ if($_SESSION['ROLE'] == "admin"){
 									<span class="title">Students</span><span class="arrow"></span></a>
 								<ul class="sub-menu">
 									<li class="nav-item">
-										<a href="all_students.html" class="nav-link "> <span class="title">All
+										<a href="all_students.php" class="nav-link "> <span class="title">All
 												Students</span>
 										</a>
 									</li>
@@ -310,7 +329,26 @@ if($_SESSION['ROLE'] == "admin"){
 
 
 
-
+							<li class="nav-item">
+								<a href="#" class="nav-link nav-toggle"><i data-feather="users"></i>
+									<span class="title">Coding Section</span><span class="arrow"></span></a>
+								<ul class="sub-menu">
+									<li class="nav-item">
+										<a href="all_alumni.html" class="nav-link "> <span class="title">Coding Problems</span>
+										</a>
+									</li>
+									<li class="nav-item">
+										<a href="all_alumni.html" class="nav-link "> <span class="title">Development Resources</span>
+										</a>
+									</li>
+									<li class="nav-item">
+										<a href="add_code.php" class="nav-link "> <span class="title">Add Problem</span>
+										</a>
+									</li>
+									
+								</ul>
+								
+							</li>
 
 
 
@@ -393,7 +431,7 @@ if($_SESSION['ROLE'] == "admin"){
 									<span class="title">Students</span><span class="arrow"></span></a>
 								<ul class="sub-menu">
 									<li class="nav-item">
-										<a href="all_students.html" class="nav-link "> <span class="title">All
+										<a href="all_students.php" class="nav-link "> <span class="title">All
 												Students</span>
 										</a>
 									</li>
@@ -451,7 +489,22 @@ if($_SESSION['ROLE'] == "admin"){
 
 
 
-
+							<li class="nav-item">
+								<a href="#" class="nav-link nav-toggle"><i data-feather="users"></i>
+									<span class="title">Coding Section</span><span class="arrow"></span></a>
+								<ul class="sub-menu">
+									<li class="nav-item">
+										<a href="all_alumni.html" class="nav-link "> <span class="title">Coding Problems</span>
+										</a>
+									</li>
+									<li class="nav-item">
+										<a href="all_alumni.html" class="nav-link "> <span class="title">Development Resources</span>
+										</a>
+									</li>
+									
+								</ul>
+								
+							</li>
 
 
 

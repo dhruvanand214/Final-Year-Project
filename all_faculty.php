@@ -25,8 +25,8 @@ session_start();
 	<!--bootstrap -->
 	<link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 	<!-- data tables -->
-	<link href="assets/plugins/datatables/plugins/bootstrap/dataTables.bootstrap5.min.css" rel="stylesheet"
-		type="text/css" />
+	<!-- <link href="assets/plugins/datatables/plugins/bootstrap/dataTables.bootstrap5.min.css" rel="stylesheet"
+		type="text/css" /> -->
 	<!-- Material Design Lite CSS -->
 	<link rel="stylesheet" href="assets/plugins/material/material.min.css">
 	<link rel="stylesheet" href="assets/css/material_style.css">
@@ -63,7 +63,7 @@ session_start();
 							</div>
 							<ol class="breadcrumb page-breadcrumb pull-right">
 								<li><i class="fa fa-home"></i>&nbsp;<a class="parent-item"
-										href="index.html">Home</a>&nbsp;<i class="fa fa-angle-right"></i>
+										href="dashboard.php">Home</a>&nbsp;<i class="fa fa-angle-right"></i>
 								</li>
 								<li><a class="parent-item" href="#">Faculty</a>&nbsp;<i class="fa fa-angle-right"></i>
 								</li>
@@ -108,7 +108,7 @@ session_start();
 															id="example4">
 															<thead>
 																<tr>
-																	<th></th>
+																	
 																	<th> Name </th>
 																	<th> Department </th>
 																	<th> Gender </th>
@@ -121,9 +121,7 @@ session_start();
 															</thead>
 															<tbody>
 																<tr class="odd gradeX">
-																	<td class="patient-img">
-																		<img src="assets/img/user/user1.jpg" alt="">
-																	</td>
+																	
 																	<td>Rajesh</td>
 																	<td class="left">Computer</td>
 																	<td class="left">Male</td>
@@ -143,305 +141,7 @@ session_start();
 																		</a>
 																	</td>
 																</tr>
-																<tr class="odd gradeX">
-																	<td class="patient-img">
-																		<img src="assets/img/user/user10.jpg" alt="">
-																	</td>
-																	<td>Pooja Patel</td>
-																	<td class="left">Mechanical</td>
-																	<td class="left">Female</td>
-																	<td class="left">M.E.</td>
-																	<td><a href="tel:444786876">
-																			444786876 </a></td>
-																	<td><a href="mailto:shuxer@gmail.com">
-																			pooja@gmail.com </a></td>
-																	<td class="left">27 Aug 2005</td>
-																	<td>
-																		<a href="edit_Faculty.html"
-																			class="tblEditBtn">
-																			<i class="fa fa-pencil"></i>
-																		</a>
-																		<a class="tblDelBtn">
-																			<i class="fa fa-trash-o"></i>
-																		</a>
-																	</td>
-																</tr>
-																<tr class="odd gradeX">
-																	<td class="patient-img">
-																		<img src="assets/img/user/user2.jpg" alt="">
-																	</td>
-																	<td>Sarah Smith</td>
-																	<td class="left">Science</td>
-																	<td class="left">Female</td>
-																	<td class="left">B.Sc., M.Sc.</td>
-																	<td><a href="tel:44455546456">
-																			44455546456 </a></td>
-																	<td><a href="mailto:shuxer@gmail.com">
-																			sarah@gmail.com </a></td>
-																	<td class="left">05 Jun 2011</td>
-																	<td>
-																		<a href="edit_Faculty.html"
-																			class="tblEditBtn">
-																			<i class="fa fa-pencil"></i>
-																		</a>
-																		<a class="tblDelBtn">
-																			<i class="fa fa-trash-o"></i>
-																		</a>
-																	</td>
-																</tr>
-																<tr class="odd gradeX">
-																	<td class="patient-img">
-																		<img src="assets/img/user/user3.jpg" alt="">
-																	</td>
-																	<td>John Deo</td>
-																	<td class="left">Music</td>
-																	<td class="left">Male</td>
-																	<td class="left">B.A.</td>
-																	<td><a href="tel:444543564">
-																			444543564 </a></td>
-																	<td><a href="mailto:shuxer@gmail.com">
-																			john@gmail.com </a></td>
-																	<td class="left">15 Feb 2012</td>
-																	<td>
-																		<a href="edit_Faculty.html"
-																			class="tblEditBtn">
-																			<i class="fa fa-pencil"></i>
-																		</a>
-																		<a class="tblDelBtn">
-																			<i class="fa fa-trash-o"></i>
-																		</a>
-																	</td>
-																</tr>
-																<tr class="odd gradeX">
-																	<td class="patient-img">
-																		<img src="assets/img/user/user4.jpg" alt="">
-																	</td>
-																	<td>Jay Soni</td>
-																	<td class="left">Mathematics</td>
-																	<td class="left">10</td>
-																	<td class="left">B.B.A., P.H.D.</td>
-																	<td><a href="tel:444543564">
-																			444543564 </a></td>
-																	<td><a href="mailto:shuxer@gmail.com">
-																			kenh@gmail.com </a></td>
-																	<td class="left">12 Nov 2012</td>
-																	<td>
-																		<a href="edit_Faculty.html"
-																			class="tblEditBtn">
-																			<i class="fa fa-pencil"></i>
-																		</a>
-																		<a class="tblDelBtn">
-																			<i class="fa fa-trash-o"></i>
-																		</a>
-																	</td>
-																</tr>
-																<tr class="odd gradeX">
-																	<td class="patient-img">
-																		<img src="assets/img/user/user5.jpg" alt="">
-																	</td>
-																	<td>Jacob Ryan</td>
-																	<td class="left">Computer</td>
-																	<td class="left">Male</td>
-																	<td class="left">B.E., M.E.</td>
-																	<td><a href="tel:444543564">
-																			444543564 </a></td>
-																	<td><a href="mailto:shuxer@gmail.com">
-																			johnson@gmail.com </a></td>
-																	<td class="left">03 Dec 2001</td>
-																	<td>
-																		<a href="edit_Faculty.html"
-																			class="tblEditBtn">
-																			<i class="fa fa-pencil"></i>
-																		</a>
-																		<a class="tblDelBtn">
-																			<i class="fa fa-trash-o"></i>
-																		</a>
-																	</td>
-																</tr>
-																<tr class="odd gradeX">
-																	<td class="patient-img">
-																		<img src="assets/img/user/user6.jpg" alt="">
-																	</td>
-																	<td>Megha Trivedi</td>
-																	<td class="left">Mathematics</td>
-																	<td class="left">Female</td>
-																	<td class="left">M.COM, M.Ed.</td>
-																	<td><a href="tel:444543564">
-																			444543564 </a></td>
-																	<td><a href="mailto:shuxer@gmail.com">
-																			megha@gmail.com </a></td>
-																	<td class="left">17 Mar 2013</td>
-																	<td>
-																		<a href="edit_Faculty.html"
-																			class="tblEditBtn">
-																			<i class="fa fa-pencil"></i>
-																		</a>
-																		<a class="tblDelBtn">
-																			<i class="fa fa-trash-o"></i>
-																		</a>
-																	</td>
-																</tr>
-																<tr class="odd gradeX">
-																	<td class="patient-img">
-																		<img src="assets/img/user/user1.jpg" alt="">
-																	</td>
-																	<td>Rajesh</td>
-																	<td class="left">Computer</td>
-																	<td class="left">Male</td>
-																	<td class="left">M.Com, B.Ed</td>
-																	<td><a href="tel:4444565756">
-																			4444565756 </a></td>
-																	<td><a href="mailto:shuxer@gmail.com">
-																			rajesh@gmail.com </a></td>
-																	<td class="left">22 Feb 2000</td>
-																	<td>
-																		<a href="edit_Faculty.html"
-																			class="tblEditBtn">
-																			<i class="fa fa-pencil"></i>
-																		</a>
-																		<a class="tblDelBtn">
-																			<i class="fa fa-trash-o"></i>
-																		</a>
-																	</td>
-																</tr>
-																<tr class="odd gradeX">
-																	<td class="patient-img">
-																		<img src="assets/img/user/user10.jpg" alt="">
-																	</td>
-																	<td>Pooja Patel</td>
-																	<td class="left">Mechanical</td>
-																	<td class="left">Female</td>
-																	<td class="left">M.E.</td>
-																	<td><a href="tel:444786876">
-																			444786876 </a></td>
-																	<td><a href="mailto:shuxer@gmail.com">
-																			pooja@gmail.com </a></td>
-																	<td class="left">27 Aug 2005</td>
-																	<td>
-																		<a href="edit_Faculty.html"
-																			class="tblEditBtn">
-																			<i class="fa fa-pencil"></i>
-																		</a>
-																		<a class="tblDelBtn">
-																			<i class="fa fa-trash-o"></i>
-																		</a>
-																	</td>
-																</tr>
-																<tr class="odd gradeX">
-																	<td class="patient-img">
-																		<img src="assets/img/user/user2.jpg" alt="">
-																	</td>
-																	<td>Sarah Smith</td>
-																	<td class="left">Science</td>
-																	<td class="left">Female</td>
-																	<td class="left">B.Sc., M.Sc.</td>
-																	<td><a href="tel:44455546456">
-																			44455546456 </a></td>
-																	<td><a href="mailto:shuxer@gmail.com">
-																			sarah@gmail.com </a></td>
-																	<td class="left">05 Jun 2011</td>
-																	<td>
-																		<a href="edit_Faculty.html"
-																			class="tblEditBtn">
-																			<i class="fa fa-pencil"></i>
-																		</a>
-																		<a class="tblDelBtn">
-																			<i class="fa fa-trash-o"></i>
-																		</a>
-																	</td>
-																</tr>
-																<tr class="odd gradeX">
-																	<td class="patient-img">
-																		<img src="assets/img/user/user3.jpg" alt="">
-																	</td>
-																	<td>John Deo</td>
-																	<td class="left">Music</td>
-																	<td class="left">Male</td>
-																	<td class="left">B.A.</td>
-																	<td><a href="tel:444543564">
-																			444543564 </a></td>
-																	<td><a href="mailto:shuxer@gmail.com">
-																			john@gmail.com </a></td>
-																	<td class="left">15 Feb 2012</td>
-																	<td>
-																		<a href="edit_Faculty.html"
-																			class="tblEditBtn">
-																			<i class="fa fa-pencil"></i>
-																		</a>
-																		<a class="tblDelBtn">
-																			<i class="fa fa-trash-o"></i>
-																		</a>
-																	</td>
-																</tr>
-																<tr class="odd gradeX">
-																	<td class="patient-img">
-																		<img src="assets/img/user/user4.jpg" alt="">
-																	</td>
-																	<td>Jay Soni</td>
-																	<td class="left">Mathematics</td>
-																	<td class="left">10</td>
-																	<td class="left">B.B.A., P.H.D.</td>
-																	<td><a href="tel:444543564">
-																			444543564 </a></td>
-																	<td><a href="mailto:shuxer@gmail.com">
-																			kenh@gmail.com </a></td>
-																	<td class="left">12 Nov 2012</td>
-																	<td>
-																		<a href="edit_Faculty.html"
-																			class="tblEditBtn">
-																			<i class="fa fa-pencil"></i>
-																		</a>
-																		<a class="tblDelBtn">
-																			<i class="fa fa-trash-o"></i>
-																		</a>
-																	</td>
-																</tr>
-																<tr class="odd gradeX">
-																	<td class="patient-img">
-																		<img src="assets/img/user/user5.jpg" alt="">
-																	</td>
-																	<td>Jacob Ryan</td>
-																	<td class="left">Computer</td>
-																	<td class="left">Male</td>
-																	<td class="left">B.E., M.E.</td>
-																	<td><a href="tel:444543564">
-																			444543564 </a></td>
-																	<td><a href="mailto:shuxer@gmail.com">
-																			johnson@gmail.com </a></td>
-																	<td class="left">03 Dec 2001</td>
-																	<td>
-																		<a href="edit_Faculty.html"
-																			class="tblEditBtn">
-																			<i class="fa fa-pencil"></i>
-																		</a>
-																		<a class="tblDelBtn">
-																			<i class="fa fa-trash-o"></i>
-																		</a>
-																	</td>
-																</tr>
-																<tr class="odd gradeX">
-																	<td class="patient-img">
-																		<img src="assets/img/user/user6.jpg" alt="">
-																	</td>
-																	<td>Megha Trivedi</td>
-																	<td class="left">Mathematics</td>
-																	<td class="left">Female</td>
-																	<td class="left">M.COM, M.Ed.</td>
-																	<td><a href="tel:444543564">
-																			444543564 </a></td>
-																	<td><a href="mailto:shuxer@gmail.com">
-																			megha@gmail.com </a></td>
-																	<td class="left">17 Mar 2013</td>
-																	<td>
-																		<a href="edit_Faculty.html"
-																			class="tblEditBtn">
-																			<i class="fa fa-pencil"></i>
-																		</a>
-																		<a class="tblDelBtn">
-																			<i class="fa fa-trash-o"></i>
-																		</a>
-																	</td>
-																</tr>
+																
 															</tbody>
 														</table>
 													</div>
@@ -786,5 +486,4 @@ session_start();
 </body>
 
 
-<!-- Mirrored from www.einfosoft.com/templates/admin/smart/source/light/all_Faculty.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 17 Dec 2022 06:34:31 GMT -->
 </html>
