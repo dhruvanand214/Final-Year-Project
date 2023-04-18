@@ -60,7 +60,7 @@ session_start();
       <div class="page-content-wrapper">
         <div class="page-content">
           <section class="event_card">
-            <h1>Card Hover Effect!</h1>
+            <h1>Computer Science Departmental Clubs</h1>
             <div class="event-card-wrapper">
               <div class="event-card">
                 <a href="gfg.php" class="event-a">

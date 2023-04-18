@@ -13,13 +13,13 @@ if(!isset($_SESSION['IS_LOGIN'])){
 				<div class="page-logo">
 					<a href="dashboard.php">
 
-						<span class="logo-default">CS Portal</span> </a>
+						<span class="logo-default">CS Net</span> </a>
 				</div>
 				<!-- logo end -->
 				<ul class="nav navbar-nav navbar-left in">
 					<li><a href="#" class="menu-toggler sidebar-toggler"><i data-feather="menu"></i></a></li>
 				</ul>
-				<form class="search-form-opened" action="#" method="GET">
+				<!-- <form class="search-form-opened" action="#" method="GET">
 					<div class="input-group">
 						<input type="text" class="form-control" placeholder="Search..." name="query">
 						<span class="input-group-btn">
@@ -28,7 +28,7 @@ if(!isset($_SESSION['IS_LOGIN'])){
 							</a>
 						</span>
 					</div>
-				</form>
+				</form> -->
 				<!-- start mobile menu -->
 				<a class="menu-toggler responsive-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">
 					<span></span>
@@ -38,14 +38,24 @@ if(!isset($_SESSION['IS_LOGIN'])){
 				<div class="top-menu">
 					<ul class="nav navbar-nav pull-right">
 						<li><a class="fullscreen-btn"><i data-feather="maximize"></i></a></li>
+
+						<?php
+
+include('db.php');
+$selectquery = "select * from login";
+                                                $query = mysqli_query($con, $selectquery);
+                                                $nums = mysqli_num_rows($query);
+												$res = mysqli_fetch_array($query);
+
+?>
 						
 
 						<!-- start manage user dropdown -->
 						<li class="dropdown dropdown-user">
 							<a class="dropdown-toggle" data-bs-toggle="dropdown" data-hover="dropdown"
 								data-close-others="true">
-								<img alt="" class="img-circle " src="..assets/img/dp.jpg" />
-								<span class="username username-hide-on-mobile"> XYZ
+								<img alt="" class="img-circle " src="assets/img/dp.jpg" />
+								<span class="username username-hide-on-mobile"> <?php echo $res['Name'] ?>
 							</a>
 							<ul class="dropdown-menu dropdown-menu-default">
 								<li>

@@ -25,7 +25,7 @@ if($_SESSION['ROLE'] == "admin"){
 
 							<li class="nav-item">
 								<a href="event_manage.php" class="nav-link nav-toggle"> <i data-feather="calendar"></i>
-									<span class="title">Event Management</span>
+									<span class="title">Departmental Clubs</span>
 								</a>
 							</li>
 							<li class="nav-item">
@@ -58,7 +58,7 @@ if($_SESSION['ROLE'] == "admin"){
 							</li>
 							<li class="nav-item">
 								<a href="#" class="nav-link nav-toggle"><i data-feather="users"></i>
-									<span class="title">Students</span><span class="arrow"></span></a>
+									<span class="title">Student</span><span class="arrow"></span></a>
 								<ul class="sub-menu">
 									<li class="nav-item">
 										<a href="all_students.php" class="nav-link "> <span class="title">All
@@ -128,12 +128,12 @@ if($_SESSION['ROLE'] == "admin"){
 								</a>
 								<ul class="sub-menu">
 									<li class="nav-item">
-										<a href="all_Forms.html" class="nav-link "> <span class="title">All
+										<a href="all_Forms.php" class="nav-link "> <span class="title">All
 												Forms</span>
 										</a>
 									</li>
 									<li class="nav-item">
-										<a href="add_Forms.html" class="nav-link "> <span class="title">Add
+										<a href="add_Forms.php" class="nav-link "> <span class="title">Add
 												Forms</span>
 										</a>
 									</li>
@@ -225,7 +225,7 @@ if($_SESSION['ROLE'] == "admin"){
 
 							<li class="nav-item">
 								<a href="event_manage.php" class="nav-link nav-toggle"> <i data-feather="calendar"></i>
-									<span class="title">Event Management</span>
+									<span class="title">Departmental Clubs</span>
 								</a>
 							</li>
 							<li class="nav-item">
@@ -248,7 +248,7 @@ if($_SESSION['ROLE'] == "admin"){
 							</li>
 							<li class="nav-item">
 								<a href="#" class="nav-link nav-toggle"><i data-feather="users"></i>
-									<span class="title">Students</span><span class="arrow"></span></a>
+									<span class="title">Student</span><span class="arrow"></span></a>
 								<ul class="sub-menu">
 									<li class="nav-item">
 										<a href="all_students.php" class="nav-link "> <span class="title">All
@@ -308,12 +308,12 @@ if($_SESSION['ROLE'] == "admin"){
 								</a>
 								<ul class="sub-menu">
 									<li class="nav-item">
-										<a href="all_Forms.html" class="nav-link "> <span class="title">All
+										<a href="all_Forms.php" class="nav-link "> <span class="title">All
 												Forms</span>
 										</a>
 									</li>
 									<li class="nav-item">
-										<a href="add_Forms.html" class="nav-link "> <span class="title">Add
+										<a href="add_Forms.php" class="nav-link "> <span class="title">Add
 												Forms</span>
 										</a>
 									</li>
@@ -405,7 +405,7 @@ if($_SESSION['ROLE'] == "admin"){
 
 							<li class="nav-item">
 								<a href="event_manage.php" class="nav-link nav-toggle"> <i data-feather="calendar"></i>
-									<span class="title">Event Management</span>
+									<span class="title">Departmental Clubs</span>
 								</a>
 							</li>
 							<li class="nav-item">
@@ -428,7 +428,7 @@ if($_SESSION['ROLE'] == "admin"){
 							</li>
 							<li class="nav-item">
 								<a href="#" class="nav-link nav-toggle"><i data-feather="users"></i>
-									<span class="title">Students</span><span class="arrow"></span></a>
+									<span class="title">Student</span><span class="arrow"></span></a>
 								<ul class="sub-menu">
 									<li class="nav-item">
 										<a href="all_students.php" class="nav-link "> <span class="title">All
@@ -478,7 +478,7 @@ if($_SESSION['ROLE'] == "admin"){
 								</a>
 								<ul class="sub-menu">
 									<li class="nav-item">
-										<a href="all_Forms.html" class="nav-link "> <span class="title">All
+										<a href="all_Forms.php" class="nav-link "> <span class="title">All
 												Forms</span>
 										</a>
 									</li>

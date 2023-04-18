@@ -65,7 +65,7 @@ if(isset($_POST['signin'])){
 						<!-- <a href="sign_up.html" class="signup-image-link">Create an account</a> -->
 					</div>
 					<div class="signin-form">
-						<h2 class="form-title">Students Login</h2>
+						<h2 class="form-title"><?php echo $_GET['person'] ?> Login</h2>
 						<form class="register-form" id="login-form" method="post">
 							<div class="form-group">
 								<div class="">
