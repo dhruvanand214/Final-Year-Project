@@ -17,7 +17,7 @@ session_start();
 	<meta content="width=device-width, initial-scale=1" name="viewport" />
 	<meta name="description" content="Responsive Admin Template" />
 	<meta name="author" content="SmartUniversity" />
-	<title>Smart University | Bootstrap Responsive Admin Template</title>
+	<title>CS Portal</title>
 	<!-- google font -->
 	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet" type="text/css" />
 	<!-- icons -->
@@ -354,11 +354,7 @@ session_start();
 	<!-- Material -->
 	<!-- <script src="assets/plugins/material/material.min.js"></script> -->
 	<!-- end js include path -->
-	<script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
-	<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
-	<script>
-		let table = new DataTable('#myTable');
-	</script>
+	
 </body>
 
 

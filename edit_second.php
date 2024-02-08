@@ -87,7 +87,7 @@ session_start();
 
 										$id = $_GET['id'];
 
-										$showquery = "select * from students_second where Roll_No = {$id}";
+										$showquery = "select * from students where Roll_No = {$id}";
 
 										$showdata = mysqli_query($con, $showquery);
 
@@ -108,7 +108,7 @@ session_start();
 
 											// $insertquery = "INSERT INTO `students_second`(`Roll_No`, `Name`, `Section`, `Mobile`, `Email`, `Col_ID`, `DOB`, `Par_No`) VALUES ('$rollno','$name','$section','$mobno','$email','$collid','$dob','$parno')";
 
-											$query = "UPDATE `students_second` SET `Roll_No`='$rollno',`Name`='$name',`Section`='$section',`Mobile`='$mobno',`Email`='$email',`Col_ID`='$collid',`DOB`='$dob',`Par_No`='$parno' WHERE Roll_No = $idupdate";
+											$query = "UPDATE `students` SET `Roll_No`='$rollno',`Name`='$name',`Section`='$section',`Mobile`='$mobno',`Email`='$email',`Col_ID`='$collid',`DOB`='$dob',`Par_No`='$parno' WHERE Roll_No = $idupdate";
 
 											$res = mysqli_query($con, $query);
 
@@ -156,7 +156,7 @@ session_start();
 										</div>
 										<div class="col-lg-6 p-t-20">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-												<input class="mdl-textfield__input" type="text" name="dob" value="<?php echo $arraydata['DOB']; ?>">
+												<input class="mdl-textfield__input" type="date" id="text" name="dob" pattern="\d{4}-\d{2}-\d{2}" placeholder="YYYY-MM-DD" value="<?php echo $arraydata['DOB']; ?>">
 											</div>
 										</div>
 										<div class="col-lg-6 p-t-20">

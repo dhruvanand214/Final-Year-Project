@@ -8,12 +8,13 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>CS Portal</title>
     
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="main/styles.css">
+    <link rel="shortcut icon" href="assets/img/favicon/logo-half.png" />
 </head>
 
 
@@ -36,12 +37,14 @@ session_start();
   <main>
     <!-- HOME SECTION -->
     <section class="container section-1">
+      
       <div class="slogan">
+      <h1 class="company-title" style="font-size: 2.5rem;">Computer Science Net</h1>
         <h2 class="company-title">Welcome To </h2>
         <h1 class="company-title">Computer Science Department</h1>
-        <h2 class="company-slogan">
+        <!-- <h2 class="company-slogan">
           This is our departmental Portal.
-        </h2>
+        </h2> -->
       </div>
       <div class="home-computer-container">
         <img class="home-computer" src="main/images/society.jpg" alt="ims" class="home-img">
@@ -107,6 +110,7 @@ session_start();
 
     <!-- PRODUCT SECTION -->
     <section class="container section-5 login-box">
+      <h1>Computer Science Net Dashboard Login</h1>
         <div class="flex">
         <a href="index.php?person=Student">
             <span></span>
@@ -134,8 +138,8 @@ session_start();
 
   </main>
   <footer>
-    <div class="container top-footer">
-      <!-- footer item 1 -->
+    <!-- <div class="container top-footer">
+      <!-- footer item 1 
       <div class="footer-item">
         <h2 class="footer-title">XYZ</h2>
         <div class="footer-items">
@@ -144,7 +148,7 @@ session_start();
           <h3>SAMPLE</h3>
         </div>
       </div>
-      <!-- footer item 2 -->
+      <!-- footer item 2 
       <div class="footer-item">
         <h2 class="footer-title">ABC</h2>
         <div class="footer-items">
@@ -155,7 +159,7 @@ session_start();
           <h3>SAMPLE</h3>
         </div>
       </div>
-      <!-- footer item 3 -->
+      <!-- footer item 3 
       <div class="footer-item">
         <h2 class="footer-title">GHF</h2>
         <div class="footer-items">
@@ -166,7 +170,7 @@ session_start();
           <h3>SAMPLE</h3>
         </div>
       </div>
-      <!-- footer item 4 -->
+      <!-- footer item 4 
       <div class="footer-item">
         <h2 class="footer-title">KJH</h2>
         <div class="footer-items">
@@ -177,7 +181,7 @@ session_start();
           <h3>SAMPLE</h3>
         </div>
       </div>
-    </div>
+    </div> -->
     <div class="container end-footer">
       <div class="copyright">copyright © 2021 - Present • <b>IMSES CS POrtal</b></div>
       <a class="designer" href="#">DHRUV, SAMEEKSHA, KUSHAGRA</a>

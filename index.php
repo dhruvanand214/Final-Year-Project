@@ -17,6 +17,12 @@ if(isset($_POST['signin'])){
 	$count = mysqli_num_rows($result);
 	if($count>0){
 		$row = mysqli_fetch_assoc($result);
+
+
+		 
+		$_SESSION['username'] = $uname;
+		
+		$_SESSION['Name'] = $row['Name'];
 		$_SESSION['ROLE'] = $row['role'];
 		$_SESSION['IS_LOGIN'] = 'yes';
 		header('location:dashboard.php');
@@ -38,7 +44,7 @@ if(isset($_POST['signin'])){
 	<meta content="width=device-width, initial-scale=1" name="viewport" />
 	<meta name="description" content="Responsive Admin Template" />
 	<meta name="author" content="RedstarHospital" />
-	<title>Smart University | Bootstrap Responsive Admin Template</title>
+	<title>CS Portal</title>
 	<!-- google font -->
 	<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&amp;subset=all" rel="stylesheet"
 		type="text/css" />
@@ -103,5 +109,5 @@ if(isset($_POST['signin'])){
 </body>
 
 
-<!-- Mirrored from www.einfosoft.com/templates/admin/smart/source/light/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 17 Dec 2022 06:34:25 GMT -->
+
 </html>

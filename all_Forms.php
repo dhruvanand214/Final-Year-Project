@@ -9,7 +9,7 @@ session_start();
 <!-- BEGIN HEAD -->
 
 
-<!-- Mirrored from www.einfosoft.com/templates/admin/smart/source/light/all_Formss.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 17 Dec 2022 06:34:36 GMT -->
+
 
 <head>
 	<meta charset="utf-8" />
@@ -17,7 +17,7 @@ session_start();
 	<meta content="width=device-width, initial-scale=1" name="viewport" />
 	<meta name="description" content="Responsive Admin Template" />
 	<meta name="author" content="SmartUniversity" />
-	<title>Smart University | Bootstrap Responsive Admin Template</title>
+	<title>CS Portal</title>
 	<!-- google font -->
 	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet" type="text/css" />
 	<!-- icons -->
@@ -81,24 +81,7 @@ session_start();
 								</div>
 								<div class="card-body ">
 
-									<?php
-									if ($_SESSION['ROLE'] == "admin") {
-
-									?>
-
-										<div class="row">
-											<div class="col-md-6 col-sm-6 col-6">
-												<div class="btn-group">
-													<a href="add_Faculty.html" id="addRow" class="btn btn-primary">
-														Add New <i class="fa fa-plus"></i>
-													</a>
-												</div>
-											</div>
-										</div>
-
-									<?php
-									}
-									?>
+								
 
 									<div class="table-responsive">
 
@@ -113,7 +96,14 @@ session_start();
 													<th> Responsive Faculty </th>
 													<th> Details </th>
 													<th> Link </th>
+													<?php
+                                                        if ($_SESSION['ROLE'] == "admin" || $_SESSION['ROLE'] == "faculty") {
+
+                                                        ?>
 													<th> Actions </th>
+													<?php
+														}
+														?>
 												</tr>
 											</thead>
 											<tbody>
@@ -124,29 +114,30 @@ session_start();
                                                 $query = mysqli_query($con, $selectquery);
                                                 $nums = mysqli_num_rows($query);
 											
-
+$temp = 0;
                                                 while ($res = mysqli_fetch_array($query)) {
+													$temp = $temp+1;
                                                 ?>
 
 												<tr class="odd gradeX">
-													<td><?php echo $res['S.no'] ?></td>
-													<td><?php echo $res['Title'] ?></td>
-													<td class="left"><?php echo $res['Year'] ?></td>
+													<td><?php echo $temp ?></td>
+													<td><?php echo $res['Name'] ?></td>
+													<td class="left"><?php echo $res['year_name'] ?></td>
 													<td class="left"><?php echo $res['Section'] ?></td>
 													<td class="left"><?php echo $res['Last Date'] ?></td>
 													<td> <?php echo $res['Faculty'] ?></td>
 													<td><?php echo $res['Details'] ?></td>
 													<td><a href="<?php echo $res['Link'] ?>" target="_blank">Click Here</a></td>
 													<?php
-                                                        if ($_SESSION['ROLE'] == "admin") {
+                                                        if ($_SESSION['ROLE'] == "admin" || $_SESSION['ROLE'] == "faculty") {
 
                                                         ?>
 
                                                             <td>
-                                                                <a href="edit_Forms.php?id=<?php echo $res['S.no'] ?>" class="tblEditBtn">
+                                                                <a href="edit_Forms.php?id1=<?php echo $res['S.no'] ?>" class="tblEditBtn">
                                                                     <i class="fa fa-pencil"></i>
                                                                 </a>
-                                                                <a href="delete_Forms.php?id=<?php echo $res['S.no'] ?>" class="tblDelBtn">
+                                                                <a href="delete_Forms.php?id1=<?php echo $res['S.no'] ?>" class="tblDelBtn">
                                                                     <i class="fa fa-trash-o"></i>
                                                                 </a>
                                                             </td>
@@ -170,254 +161,17 @@ session_start();
 				</div>
 			</div>
 			<!-- end page content -->
-			<!-- start chat sidebar -->
-			<div class="chat-sidebar-container" data-close-on-body-click="false">
-				<div class="chat-sidebar">
-					<ul class="nav nav-tabs">
-						<li class="nav-item">
-							<a href="#quick_sidebar_tab_1" class="nav-link active tab-icon" data-bs-toggle="tab"> <i class="material-icons">chat</i>Chat
-								<span class="badge badge-danger">4</span>
-							</a>
-						</li>
-						<li class="nav-item">
-							<a href="#quick_sidebar_tab_3" class="nav-link tab-icon" data-bs-toggle="tab"> <i class="material-icons">settings</i>
-								Settings
-							</a>
-						</li>
-					</ul>
-					<div class="tab-content">
-						<!-- Start User Chat -->
-						<div class="tab-pane active chat-sidebar-chat in active show" role="tabpanel" id="quick_sidebar_tab_1">
-							<div class="chat-sidebar-list">
-								<div class="chat-sidebar-chat-users slimscroll-style" data-rail-color="#ddd" data-wrapper-class="chat-sidebar-list">
-									<div class="chat-header">
-										<h5 class="list-heading">Online</h5>
-									</div>
-									<ul class="media-list list-items">
-										<li class="media"><img class="media-object" src="assets/img/user/user3.jpg" width="35" height="35" alt="...">
-											<i class="online dot"></i>
-											<div class="media-body">
-												<h5 class="media-heading">John Deo</h5>
-												<div class="media-heading-sub">Spine Surgeon</div>
-											</div>
-										</li>
-										<li class="media">
-											<div class="media-status">
-												<span class="badge badge-success">5</span>
-											</div> <img class="media-object" src="assets/img/user/user1.jpg" width="35" height="35" alt="...">
-											<i class="busy dot"></i>
-											<div class="media-body">
-												<h5 class="media-heading">Rajesh</h5>
-												<div class="media-heading-sub">Director</div>
-											</div>
-										</li>
-										<li class="media"><img class="media-object" src="assets/img/user/user5.jpg" width="35" height="35" alt="...">
-											<i class="away dot"></i>
-											<div class="media-body">
-												<h5 class="media-heading">Jacob Ryan</h5>
-												<div class="media-heading-sub">Ortho Surgeon</div>
-											</div>
-										</li>
-										<li class="media">
-											<div class="media-status">
-												<span class="badge badge-danger">8</span>
-											</div> <img class="media-object" src="assets/img/user/user4.jpg" width="35" height="35" alt="...">
-											<i class="online dot"></i>
-											<div class="media-body">
-												<h5 class="media-heading">Kehn Anderson</h5>
-												<div class="media-heading-sub">CEO</div>
-											</div>
-										</li>
-										<li class="media"><img class="media-object" src="assets/img/user/user2.jpg" width="35" height="35" alt="...">
-											<i class="busy dot"></i>
-											<div class="media-body">
-												<h5 class="media-heading">Sarah Smith</h5>
-												<div class="media-heading-sub">Anaesthetics</div>
-											</div>
-										</li>
-										<li class="media"><img class="media-object" src="assets/img/user/user7.jpg" width="35" height="35" alt="...">
-											<i class="online dot"></i>
-											<div class="media-body">
-												<h5 class="media-heading">Vlad Cardella</h5>
-												<div class="media-heading-sub">Cardiologist</div>
-											</div>
-										</li>
-									</ul>
-									<div class="chat-header">
-										<h5 class="list-heading">Offline</h5>
-									</div>
-									<ul class="media-list list-items">
-										<li class="media">
-											<div class="media-status">
-												<span class="badge badge-warning">4</span>
-											</div> <img class="media-object" src="assets/img/user/user6.jpg" width="35" height="35" alt="...">
-											<i class="offline dot"></i>
-											<div class="media-body">
-												<h5 class="media-heading">Jennifer Maklen</h5>
-												<div class="media-heading-sub">Nurse</div>
-												<div class="media-heading-small">Last seen 01:20 AM</div>
-											</div>
-										</li>
-										<li class="media"><img class="media-object" src="assets/img/user/user8.jpg" width="35" height="35" alt="...">
-											<i class="offline dot"></i>
-											<div class="media-body">
-												<h5 class="media-heading">Lina Smith</h5>
-												<div class="media-heading-sub">Ortho Surgeon</div>
-												<div class="media-heading-small">Last seen 11:14 PM</div>
-											</div>
-										</li>
-										<li class="media">
-											<div class="media-status">
-												<span class="badge badge-success">9</span>
-											</div> <img class="media-object" src="assets/img/user/user9.jpg" width="35" height="35" alt="...">
-											<i class="offline dot"></i>
-											<div class="media-body">
-												<h5 class="media-heading">Jeff Adam</h5>
-												<div class="media-heading-sub">Compounder</div>
-												<div class="media-heading-small">Last seen 3:31 PM</div>
-											</div>
-										</li>
-										<li class="media"><img class="media-object" src="assets/img/user/user10.jpg" width="35" height="35" alt="...">
-											<i class="offline dot"></i>
-											<div class="media-body">
-												<h5 class="media-heading">Anjelina Cardella</h5>
-												<div class="media-heading-sub">Physiotherapist</div>
-												<div class="media-heading-small">Last seen 7:45 PM</div>
-											</div>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<!-- End User Chat -->
-						<!-- Start Setting Panel -->
-						<div class="tab-pane chat-sidebar-settings" role="tabpanel" id="quick_sidebar_tab_3">
-							<div class="chat-sidebar-settings-list slimscroll-style">
-								<div class="chat-header">
-									<h5 class="list-heading">Layout Settings</h5>
-								</div>
-								<div class="chatpane inner-content ">
-									<div class="settings-list">
-										<div class="setting-item">
-											<div class="setting-text">Sidebar Position</div>
-											<div class="setting-set">
-												<select class="sidebar-pos-option form-control input-inline input-sm input-small ">
-													<option value="left" selected="selected">Left</option>
-													<option value="right">Right</option>
-												</select>
-											</div>
-										</div>
-										<div class="setting-item">
-											<div class="setting-text">Header</div>
-											<div class="setting-set">
-												<select class="page-header-option form-control input-inline input-sm input-small ">
-													<option value="fixed" selected="selected">Fixed</option>
-													<option value="default">Default</option>
-												</select>
-											</div>
-										</div>
-										<div class="setting-item">
-											<div class="setting-text">Footer</div>
-											<div class="setting-set">
-												<select class="page-footer-option form-control input-inline input-sm input-small ">
-													<option value="fixed">Fixed</option>
-													<option value="default" selected="selected">Default</option>
-												</select>
-											</div>
-										</div>
-									</div>
-									<div class="chat-header">
-										<h5 class="list-heading">Account Settings</h5>
-									</div>
-									<div class="settings-list">
-										<div class="setting-item">
-											<div class="setting-text">Notifications</div>
-											<div class="setting-set">
-												<div class="switch">
-													<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-1">
-														<input type="checkbox" id="switch-1" class="mdl-switch__input" checked>
-													</label>
-												</div>
-											</div>
-										</div>
-										<div class="setting-item">
-											<div class="setting-text">Show Online</div>
-											<div class="setting-set">
-												<div class="switch">
-													<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-7">
-														<input type="checkbox" id="switch-7" class="mdl-switch__input" checked>
-													</label>
-												</div>
-											</div>
-										</div>
-										<div class="setting-item">
-											<div class="setting-text">Status</div>
-											<div class="setting-set">
-												<div class="switch">
-													<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-2">
-														<input type="checkbox" id="switch-2" class="mdl-switch__input" checked>
-													</label>
-												</div>
-											</div>
-										</div>
-										<div class="setting-item">
-											<div class="setting-text">2 Steps Verification</div>
-											<div class="setting-set">
-												<div class="switch">
-													<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-3">
-														<input type="checkbox" id="switch-3" class="mdl-switch__input" checked>
-													</label>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="chat-header">
-										<h5 class="list-heading">General Settings</h5>
-									</div>
-									<div class="settings-list">
-										<div class="setting-item">
-											<div class="setting-text">Location</div>
-											<div class="setting-set">
-												<div class="switch">
-													<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-4">
-														<input type="checkbox" id="switch-4" class="mdl-switch__input" checked>
-													</label>
-												</div>
-											</div>
-										</div>
-										<div class="setting-item">
-											<div class="setting-text">Save Histry</div>
-											<div class="setting-set">
-												<div class="switch">
-													<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-5">
-														<input type="checkbox" id="switch-5" class="mdl-switch__input" checked>
-													</label>
-												</div>
-											</div>
-										</div>
-										<div class="setting-item">
-											<div class="setting-text">Auto Updates</div>
-											<div class="setting-set">
-												<div class="switch">
-													<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-6">
-														<input type="checkbox" id="switch-6" class="mdl-switch__input" checked>
-													</label>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- end chat sidebar -->
+			
 		</div>
 		<!-- end page container -->
 		
 	</div>
 	<!-- start js include path -->
+	<script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
+    <script>
+        let table = new DataTable('#myTable');
+    </script>
     <script src="assets/plugins/jquery/jquery.min.js"></script>
     <script src="assets/plugins/popper/popper.js"></script>
     <script src="assets/plugins/jquery-blockui/jquery.blockui.min.js"></script>
@@ -438,11 +192,7 @@ session_start();
     <!-- Material -->
     <!-- <script src="assets/plugins/material/material.min.js"></script> -->
     <!-- end js include path -->
-    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
-    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
-    <script>
-        let table = new DataTable('#myTable');
-    </script>
+    
 </body>
 
 

@@ -61,7 +61,7 @@ session_start();
             <div class="page-content-wrapper">
                 <div class="page-content">
                     <div class="card-body edit-body row">
-                        <form action="gfg.php" method="post" enctype="multipart/form-data">
+                        <form action="" method="post" enctype="multipart/form-data">
 
                         <div class="col-lg-6 p-t-20">
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
@@ -85,6 +85,13 @@ session_start();
                         <div class="col-lg-6 p-t-20">
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
                                 <label class="mdl-textfield__label" style="top: 0;">Last Date To Register</label>
+                                <input class="mdl-textfield__input" type="date" id="date" name="ldtr">
+                                
+                            </div>
+                        </div>
+                        <div class="col-lg-6 p-t-20">
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                <label class="mdl-textfield__label" style="top: 0;">Event Date</label>
                                 <input class="mdl-textfield__input" type="date" id="date" name="date">
                                 
                             </div>
@@ -97,7 +104,7 @@ session_start();
                         </div>
                         <div class="col-lg-12 p-t-20 text-center">
                             <input type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 m-r-20 btn-circle btn-primary" name="submit" value="Submit">
-                            <input type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 btn-circle btn-danger" value="Delete">
+                            
                         </div>
                         </form>
                     </div>
@@ -141,3 +148,56 @@ session_start();
 
 
 </html>
+
+<?php
+
+include("db.php");
+
+if (isset($_POST['submit'])) {
+    $username = $_POST['username'];
+    $winner = $_POST['winner'];
+    $link = $_POST['link'];
+    $date = $_POST['date'];
+    $ldtr = $_POST['ldtr'];
+    $files = $_FILES['image'];
+
+    // print_r($username);
+    // print_r($files);
+
+    $filename = $files['name'];
+    $fileerror = $files['error'];
+    $filetmp = $files['tmp_name'];
+
+    $fileext = explode('.', $filename);
+    $filecheck = strtolower(end($fileext));
+
+    $fileextstored = array('png', 'jpg', 'jpeg');
+
+    if (in_array($filecheck, $fileextstored)) {
+        $destinationfile = 'event_images/' . $filename;
+        move_uploaded_file($filetmp, $destinationfile);
+
+        $q = "INSERT INTO `knack`(`Name`, `Banner`, `Winner`, `Link`, `Date`, `LDTR`) VALUES ('$username', '$destinationfile', '$winner', '$link', '$date', '$ldtr')";
+
+        $query = mysqli_query($con, $q);
+    }
+
+    if($query){
+        ?>
+        <script>
+            alert("Data Inserted");
+        </script>
+        <?php
+    }
+    else{
+        ?>
+        <script>
+            alert("Data Not Inserted");
+        </script>
+        <?php
+    
+    }
+}
+
+
+        ?>

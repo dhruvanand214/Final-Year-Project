@@ -1,7 +1,7 @@
 .club_content{
-    display: flex;
+    /* display: flex;
     height: 86vh;
-    flex-direction: column;
+    flex-direction: column; */
     margin-top: 50px;
     justify-content: space-evenly;
 }

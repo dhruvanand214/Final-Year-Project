@@ -62,46 +62,47 @@ session_start();
                         <div class="courses-container">
 
 
-<?php
+                            <?php
 
-include('db.php');
-$selectquery = "select * from coding";
-                                                $query = mysqli_query($con, $selectquery);
-                                                $nums = mysqli_num_rows($query);
+                            include('db.php');
+                            $selectquery = "select * from coding";
+                            $query = mysqli_query($con, $selectquery);
+                            $nums = mysqli_num_rows($query);
 
-                                                $i = 0;
+                            $i = 0;
 
-                                                while($res = mysqli_fetch_array($query)){
-                                                    
-                                                    $i = $i+1;
-                                                    ?>
-                                                
+                            while ($res = mysqli_fetch_array($query)) {
+
+                                $i = $i + 1;
+                            ?>
 
 
-                            <div class="course">
-                                <div class="course-preview">
-                                    <h6>Problem :- <?php echo $i ?></h6>
-                                    <h2><?php echo $res['Heading'] ?></h2>
-                                    <a href="#">Discussion <i class="fas fa-chevron-right"></i></a>
+
+                                <div class="course">
+                                    <div class="course-preview">
+                                        <h6>Problem :- <?php echo $i ?></h6>
+                                        <h2><?php echo $res['Heading'] ?></h2>
+                                        <a href="#">Discussion <i class="fas fa-chevron-right"></i></a>
+                                    </div>
+                                    <div class="course-info">
+
+                                        <h6>
+                                            Array
+                                        </h6>
+                                        <h2><?php echo $res['Discription'] ?></h2>
+
+                                        <a href="<?php echo $res['Prob_link'] ?>" target="_blank"><button class="btn_code" id="solveBtn">Solve Problem</button></a>
+
+                                        <!-- <button class="btn2" id="solveBtn2" data-solution-link="https://www.jdoodle.com/embed/v0/688A">Solution
+                                        </button> -->
+                                        <a href="https://www.jdoodle.com/embed/v0/688A" target="_blank"><button class="btn2" id="solveBtn2">Solution</button></a>
+                                    </div>
                                 </div>
-                                <div class="course-info">
-                                    
-                                    <h6>
-                                        Array
-                                    </h6>
-                                    <h2><?php echo $res['Discription'] ?></h2>
 
-                                    <a href="<?php echo $res['Prob_link'] ?>" target="_blank"><button class="btn_code" id="solveBtn">Solve Problem</button></a>
 
-                                    <button class="btn2" id="solveBtn2" data-solution-link="https://www.jdoodle.com/embed/v0/688A">Solution
-                                    </button>
-                                </div>
-                            </div>
-
-                            
-<?php
-                                                }
-                                                ?>
+                            <?php
+                            }
+                            ?>
 
 
                         </div>

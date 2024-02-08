@@ -17,7 +17,7 @@ session_start();
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta name="description" content="Responsive Admin Template" />
     <meta name="author" content="SmartUniversity" />
-    <title>Smart University | Bootstrap Responsive Admin Template</title>
+    <title>CS Portal</title>
     <!-- google font -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet" type="text/css" />
     <!-- icons -->
@@ -105,7 +105,7 @@ session_start();
 
                                     <div class="col-lg-12 p-t-20 text-center">
                                         <input type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 m-r-20 btn-circle btn-primary" name="submit" value="Submit">
-                                        <button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 btn-circle btn-danger">Cancel</button>
+                                        
                                     </div>
                             </div>
                             </form>

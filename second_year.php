@@ -83,24 +83,7 @@ session_start();
                                 </div>
                                 <div class="card-body ">
 
-                                    <?php
-                                    if ($_SESSION['ROLE'] == "admin") {
-
-                                    ?>
-
-                                        <div class="row">
-                                            <div class="col-md-6 col-sm-6 col-6">
-                                                <div class="btn-group">
-                                                    <a href="add_Faculty.html" id="addRow" class="btn btn-primary">
-                                                        Add New <i class="fa fa-plus"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    <?php
-                                    }
-                                    ?>
+                                    
                                     <div class="table-responsive">
 
                                         <table class="table table-striped table-bordered table-hover table-checkable order-column valign-middle table-responsive" id="myTable">
@@ -110,11 +93,20 @@ session_start();
                                                     <th> Roll No </th>
                                                     <th> Name </th>
                                                     <th> Section </th>
+
+                                                    <?php
+									if ($_SESSION['ROLE'] == "admin" || $_SESSION['ROLE'] == "faculty") {
+
+									?>
                                                     <th> Mobile </th>
                                                     <th> Email </th>
-                                                    <th> College ID</th>
                                                     <th> DOB </th>
                                                     <th> Parent No</th>
+                                                    <?php
+                                    }
+                                    ?>
+                                                    <th> College ID</th>
+                                                    
 
                                                     <?php
                                                     if ($_SESSION['ROLE'] == "admin") {
@@ -134,7 +126,7 @@ session_start();
 
                                                 <?php
                                                 include('db.php');
-                                                $selectquery = "select * from students_second";
+                                                $selectquery = "select * from students where Passing_year = (DATE_FORMAT(CURDATE(), '%Y')+2)";
                                                 $query = mysqli_query($con, $selectquery);
                                                 $nums = mysqli_num_rows($query);
 
@@ -147,13 +139,25 @@ session_start();
                                                         <td class="left" style="width: 12%"><?php echo $res['Roll_No']; ?></td>
                                                         <td><?php echo $res['Name']; ?></td>
                                                         <td class="left"><?php echo $res['Section']; ?></td>
+
+                                                        <?php
+
+                                                        if ($_SESSION['ROLE'] == "admin" || $_SESSION['ROLE'] == "faculty") {
+
+?>
+
                                                         <td><a href="tel:4444565756">
                                                                 <?php echo $res['Mobile']; ?> </a></td>
                                                         <td><a href="mailto:shuxer@gmail.com">
                                                                 <?php echo $res['Email']; ?> </a></td>
-                                                        <td class="left"><?php echo $res['Col_ID']; ?></td>
-                                                        <td class="left"><?php echo $res['DOB']; ?></td>
+                                                                <td class="left"><?php echo $res['DOB']; ?></td>
                                                         <td class="left"><?php echo $res['Par_No']; ?></td>
+
+                                                                <?php
+                                                        }
+                                                        ?>
+                                                        <td class="left"><?php echo $res['Col_ID']; ?></td>
+                                                        
 
                                                         <?php
                                                         if ($_SESSION['ROLE'] == "admin") {
@@ -440,6 +444,11 @@ session_start();
 
     </div>
     <!-- start js include path -->
+    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
+    <script>
+        let table = new DataTable('#myTable');
+    </script>
     <script src="assets/plugins/jquery/jquery.min.js"></script>
     <script src="assets/plugins/popper/popper.js"></script>
     <script src="assets/plugins/jquery-blockui/jquery.blockui.min.js"></script>
@@ -460,11 +469,7 @@ session_start();
     <!-- Material -->
     <!-- <script src="assets/plugins/material/material.min.js"></script> -->
     <!-- end js include path -->
-    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
-    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
-    <script>
-        let table = new DataTable('#myTable');
-    </script>
+    
 </body>
 
 

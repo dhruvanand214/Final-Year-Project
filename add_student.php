@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+include('db.php');
 
 ?>
 
@@ -10,13 +11,14 @@ session_start();
 
 
 <!-- Mirrored from www.einfosoft.com/templates/admin/smart/source/light/add_student.php by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 17 Dec 2022 06:34:34 GMT -->
+
 <head>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta content="width=device-width, initial-scale=1" name="viewport" />
 	<meta name="description" content="Responsive Admin Template" />
 	<meta name="author" content="SmartUniversity" />
-	<title>Smart University | Bootstrap Responsive Admin Template</title>
+	<title>CS Branch</title>
 	<!-- google font -->
 	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet" type="text/css" />
 	<!-- icons -->
@@ -45,8 +47,7 @@ session_start();
 </head>
 <!-- END HEAD -->
 
-<body
-	class="page-header-fixed sidemenu-closed-hidelogo page-content-white page-md header-white white-sidebar-color logo-indigo">
+<body class="page-header-fixed sidemenu-closed-hidelogo page-content-white page-md header-white white-sidebar-color logo-indigo">
 	<div class="page-wrapper">
 		<!-- start header -->
 		<?php include('header.php'); ?>
@@ -61,27 +62,136 @@ session_start();
 			<!-- start page content -->
 			<div class="page-content-wrapper">
 				<div class="page-content">
-				<section class="event_card">
-						<h1>Choose Year</h1>
-						<div class="event-card-wrapper">
-							<div class="event-card">
-								<a href="add_second.php" class="event-a">
-									<p class="text_year">Second Year</p>
-								</a>
+					<div class="page-bar">
+						<div class="page-title-breadcrumb">
+							<div class=" pull-left">
+								<div class="page-title">Add Student</div>
 							</div>
-							<div class="event-card">
-								<a href="third_year.php" class="event-a">
-								<p class="text_year">third Year</p>
-								</a>
-							</div>
-							<div class="event-card">
-								<a href="fourth_year.php" class="event-a">
-								<p class="text_year">Fourth Year</p>
-								</a>
-							</div>
-							<div class="event-bg-blur"></div>
+
 						</div>
-					</section>
+					</div>
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="card-box">
+								<div class="card-head">
+									<header>Basic Information</header>
+
+								</div>
+								<form action="" method="post">
+									<div class="card-body row">
+										<div class="col-lg-6 p-t-20">
+											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+												<input class="mdl-textfield__input" type="text" id="txtFirstName" name="name">
+												<label class="mdl-textfield__label">Name</label>
+											</div>
+										</div>
+
+										<div class="col-lg-6 p-t-20">
+											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+												<input class="mdl-textfield__input" type="text" id="txtRollNo" name="roll_no">
+												<label class="mdl-textfield__label">Roll No</label>
+											</div>
+										</div>
+
+										<div class="col-lg-6 p-t-20">
+											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+												<input class="mdl-textfield__input" type="email" id="txtemail" name="email">
+												<label class="mdl-textfield__label">Email</label>
+												<span class="mdl-textfield__error">Enter Valid Email Address!</span>
+											</div>
+										</div>
+										<div class="col-lg-6 p-t-20">
+											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+												<input class="mdl-textfield__input" type="date" id="text" name="dob" pattern="\d{4}-\d{2}-\d{2}" placeholder="YYYY-MM-DD">
+												<label class="mdl-textfield__label">Date of Birth</label>
+											</div>
+										</div>
+										<div class="col-lg-6 p-t-20">
+											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height txt-full-width">
+												<input class="mdl-textfield__input" type="text" id="list2" value="" readonly tabIndex="-1" name="section">
+												<label for="list2" class="pull-right margin-0">
+													<i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
+												</label>
+												<label for="list2" class="mdl-textfield__label">Section</label>
+												<ul data-mdl-for="list2" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+													<li class="mdl-menu__item" data-val="DE">CS-1</li>
+													<li class="mdl-menu__item" data-val="BY">CS-2</li>
+													<li class="mdl-menu__item" data-val="BY">CS-3</li>
+													<li class="mdl-menu__item" data-val="BY">CS-4</li>
+												</ul>
+											</div>
+										</div>
+										
+										<div class="col-lg-6 p-t-20">
+											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+												<input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="text5" name="mob_no">
+												<label class="mdl-textfield__label" for="text5">Mobile Number</label>
+												<span class="mdl-textfield__error">Number required!</span>
+											</div>
+										</div>
+
+										<div class="col-lg-6 p-t-20">
+											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+												<input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="txtPNo" name="par_no">
+												<label class="mdl-textfield__label" for="txtPNo">Parents Mobile
+													Number</label>
+												<span class="mdl-textfield__error">Number required!</span>
+											</div>
+										</div>
+
+										<div class="col-lg-6 p-t-20">
+											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+												<input class="mdl-textfield__input" type="text" name="col_id">
+												<label class="mdl-textfield__label">College ID</label>
+											</div>
+										</div>
+
+										<div class="col-lg-6 p-t-20">
+											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height txt-full-width">
+												<input class="mdl-textfield__input" type="text" id="list1" value="" readonly tabIndex="-1" name="year">
+												<label for="list1" class="pull-right margin-0">
+													<i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
+												</label>
+												<label for="list1" class="mdl-textfield__label">Year</label>
+												<ul data-mdl-for="list1" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+
+
+													<?php
+													$s = "select year_name from years";
+													$query = mysqli_query($con, $s);
+
+													?>
+
+													<?php
+													while ($r = mysqli_fetch_array($query)) {
+
+													?>
+														<li class="mdl-menu__item"><?php echo $r['year_name']; ?></li>
+													<?php
+													}
+													?>
+
+
+												</ul>
+											</div>
+										</div>
+
+										<div class="col-lg-6 p-t-20">
+											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+												<input class="mdl-textfield__input" type="number" min="2015" max="2200" name="pass_year" placeholder="YYYY">
+												<label class="mdl-textfield__label">Passing Year</label>
+											</div>
+										</div>
+
+										<div class="col-lg-12 p-t-20 text-center">
+											<input type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 m-r-20 btn-circle btn-primary" name="submit" value="Submit">
+											
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 			<!-- end page content -->
@@ -90,31 +200,26 @@ session_start();
 				<div class="chat-sidebar">
 					<ul class="nav nav-tabs">
 						<li class="nav-item">
-							<a href="#quick_sidebar_tab_1" class="nav-link active tab-icon" data-bs-toggle="tab"> <i
-									class="material-icons">chat</i>Chat
+							<a href="#quick_sidebar_tab_1" class="nav-link active tab-icon" data-bs-toggle="tab"> <i class="material-icons">chat</i>Chat
 								<span class="badge badge-danger">4</span>
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="#quick_sidebar_tab_3" class="nav-link tab-icon" data-bs-toggle="tab"> <i
-									class="material-icons">settings</i>
+							<a href="#quick_sidebar_tab_3" class="nav-link tab-icon" data-bs-toggle="tab"> <i class="material-icons">settings</i>
 								Settings
 							</a>
 						</li>
 					</ul>
 					<div class="tab-content">
 						<!-- Start User Chat -->
-						<div class="tab-pane active chat-sidebar-chat in active show" role="tabpanel"
-							id="quick_sidebar_tab_1">
+						<div class="tab-pane active chat-sidebar-chat in active show" role="tabpanel" id="quick_sidebar_tab_1">
 							<div class="chat-sidebar-list">
-								<div class="chat-sidebar-chat-users slimscroll-style" data-rail-color="#ddd"
-									data-wrapper-class="chat-sidebar-list">
+								<div class="chat-sidebar-chat-users slimscroll-style" data-rail-color="#ddd" data-wrapper-class="chat-sidebar-list">
 									<div class="chat-header">
 										<h5 class="list-heading">Online</h5>
 									</div>
 									<ul class="media-list list-items">
-										<li class="media"><img class="media-object" src="assets/img/user/user3.jpg"
-												width="35" height="35" alt="...">
+										<li class="media"><img class="media-object" src="assets/img/user/user3.jpg" width="35" height="35" alt="...">
 											<i class="online dot"></i>
 											<div class="media-body">
 												<h5 class="media-heading">John Deo</h5>
@@ -124,16 +229,14 @@ session_start();
 										<li class="media">
 											<div class="media-status">
 												<span class="badge badge-success">5</span>
-											</div> <img class="media-object" src="assets/img/user/user1.jpg"
-												width="35" height="35" alt="...">
+											</div> <img class="media-object" src="assets/img/user/user1.jpg" width="35" height="35" alt="...">
 											<i class="busy dot"></i>
 											<div class="media-body">
 												<h5 class="media-heading">Rajesh</h5>
 												<div class="media-heading-sub">Director</div>
 											</div>
 										</li>
-										<li class="media"><img class="media-object" src="assets/img/user/user5.jpg"
-												width="35" height="35" alt="...">
+										<li class="media"><img class="media-object" src="assets/img/user/user5.jpg" width="35" height="35" alt="...">
 											<i class="away dot"></i>
 											<div class="media-body">
 												<h5 class="media-heading">Jacob Ryan</h5>
@@ -143,24 +246,21 @@ session_start();
 										<li class="media">
 											<div class="media-status">
 												<span class="badge badge-danger">8</span>
-											</div> <img class="media-object" src="assets/img/user/user4.jpg"
-												width="35" height="35" alt="...">
+											</div> <img class="media-object" src="assets/img/user/user4.jpg" width="35" height="35" alt="...">
 											<i class="online dot"></i>
 											<div class="media-body">
 												<h5 class="media-heading">Kehn Anderson</h5>
 												<div class="media-heading-sub">CEO</div>
 											</div>
 										</li>
-										<li class="media"><img class="media-object" src="assets/img/user/user2.jpg"
-												width="35" height="35" alt="...">
+										<li class="media"><img class="media-object" src="assets/img/user/user2.jpg" width="35" height="35" alt="...">
 											<i class="busy dot"></i>
 											<div class="media-body">
 												<h5 class="media-heading">Sarah Smith</h5>
 												<div class="media-heading-sub">Anaesthetics</div>
 											</div>
 										</li>
-										<li class="media"><img class="media-object" src="assets/img/user/user7.jpg"
-												width="35" height="35" alt="...">
+										<li class="media"><img class="media-object" src="assets/img/user/user7.jpg" width="35" height="35" alt="...">
 											<i class="online dot"></i>
 											<div class="media-body">
 												<h5 class="media-heading">Vlad Cardella</h5>
@@ -175,8 +275,7 @@ session_start();
 										<li class="media">
 											<div class="media-status">
 												<span class="badge badge-warning">4</span>
-											</div> <img class="media-object" src="assets/img/user/user6.jpg"
-												width="35" height="35" alt="...">
+											</div> <img class="media-object" src="assets/img/user/user6.jpg" width="35" height="35" alt="...">
 											<i class="offline dot"></i>
 											<div class="media-body">
 												<h5 class="media-heading">Jennifer Maklen</h5>
@@ -184,8 +283,7 @@ session_start();
 												<div class="media-heading-small">Last seen 01:20 AM</div>
 											</div>
 										</li>
-										<li class="media"><img class="media-object" src="assets/img/user/user8.jpg"
-												width="35" height="35" alt="...">
+										<li class="media"><img class="media-object" src="assets/img/user/user8.jpg" width="35" height="35" alt="...">
 											<i class="offline dot"></i>
 											<div class="media-body">
 												<h5 class="media-heading">Lina Smith</h5>
@@ -196,8 +294,7 @@ session_start();
 										<li class="media">
 											<div class="media-status">
 												<span class="badge badge-success">9</span>
-											</div> <img class="media-object" src="assets/img/user/user9.jpg"
-												width="35" height="35" alt="...">
+											</div> <img class="media-object" src="assets/img/user/user9.jpg" width="35" height="35" alt="...">
 											<i class="offline dot"></i>
 											<div class="media-body">
 												<h5 class="media-heading">Jeff Adam</h5>
@@ -205,8 +302,7 @@ session_start();
 												<div class="media-heading-small">Last seen 3:31 PM</div>
 											</div>
 										</li>
-										<li class="media"><img class="media-object" src="assets/img/user/user10.jpg"
-												width="35" height="35" alt="...">
+										<li class="media"><img class="media-object" src="assets/img/user/user10.jpg" width="35" height="35" alt="...">
 											<i class="offline dot"></i>
 											<div class="media-body">
 												<h5 class="media-heading">Anjelina Cardella</h5>
@@ -230,8 +326,7 @@ session_start();
 										<div class="setting-item">
 											<div class="setting-text">Sidebar Position</div>
 											<div class="setting-set">
-												<select
-													class="sidebar-pos-option form-control input-inline input-sm input-small ">
+												<select class="sidebar-pos-option form-control input-inline input-sm input-small ">
 													<option value="left" selected="selected">Left</option>
 													<option value="right">Right</option>
 												</select>
@@ -240,8 +335,7 @@ session_start();
 										<div class="setting-item">
 											<div class="setting-text">Header</div>
 											<div class="setting-set">
-												<select
-													class="page-header-option form-control input-inline input-sm input-small ">
+												<select class="page-header-option form-control input-inline input-sm input-small ">
 													<option value="fixed" selected="selected">Fixed</option>
 													<option value="default">Default</option>
 												</select>
@@ -250,8 +344,7 @@ session_start();
 										<div class="setting-item">
 											<div class="setting-text">Footer</div>
 											<div class="setting-set">
-												<select
-													class="page-footer-option form-control input-inline input-sm input-small ">
+												<select class="page-footer-option form-control input-inline input-sm input-small ">
 													<option value="fixed">Fixed</option>
 													<option value="default" selected="selected">Default</option>
 												</select>
@@ -266,10 +359,8 @@ session_start();
 											<div class="setting-text">Notifications</div>
 											<div class="setting-set">
 												<div class="switch">
-													<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect"
-														for="switch-1">
-														<input type="checkbox" id="switch-1" class="mdl-switch__input"
-															checked>
+													<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-1">
+														<input type="checkbox" id="switch-1" class="mdl-switch__input" checked>
 													</label>
 												</div>
 											</div>
@@ -278,10 +369,8 @@ session_start();
 											<div class="setting-text">Show Online</div>
 											<div class="setting-set">
 												<div class="switch">
-													<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect"
-														for="switch-7">
-														<input type="checkbox" id="switch-7" class="mdl-switch__input"
-															checked>
+													<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-7">
+														<input type="checkbox" id="switch-7" class="mdl-switch__input" checked>
 													</label>
 												</div>
 											</div>
@@ -290,10 +379,8 @@ session_start();
 											<div class="setting-text">Status</div>
 											<div class="setting-set">
 												<div class="switch">
-													<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect"
-														for="switch-2">
-														<input type="checkbox" id="switch-2" class="mdl-switch__input"
-															checked>
+													<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-2">
+														<input type="checkbox" id="switch-2" class="mdl-switch__input" checked>
 													</label>
 												</div>
 											</div>
@@ -302,10 +389,8 @@ session_start();
 											<div class="setting-text">2 Steps Verification</div>
 											<div class="setting-set">
 												<div class="switch">
-													<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect"
-														for="switch-3">
-														<input type="checkbox" id="switch-3" class="mdl-switch__input"
-															checked>
+													<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-3">
+														<input type="checkbox" id="switch-3" class="mdl-switch__input" checked>
 													</label>
 												</div>
 											</div>
@@ -319,10 +404,8 @@ session_start();
 											<div class="setting-text">Location</div>
 											<div class="setting-set">
 												<div class="switch">
-													<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect"
-														for="switch-4">
-														<input type="checkbox" id="switch-4" class="mdl-switch__input"
-															checked>
+													<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-4">
+														<input type="checkbox" id="switch-4" class="mdl-switch__input" checked>
 													</label>
 												</div>
 											</div>
@@ -331,10 +414,8 @@ session_start();
 											<div class="setting-text">Save Histry</div>
 											<div class="setting-set">
 												<div class="switch">
-													<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect"
-														for="switch-5">
-														<input type="checkbox" id="switch-5" class="mdl-switch__input"
-															checked>
+													<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-5">
+														<input type="checkbox" id="switch-5" class="mdl-switch__input" checked>
 													</label>
 												</div>
 											</div>
@@ -343,10 +424,8 @@ session_start();
 											<div class="setting-text">Auto Updates</div>
 											<div class="setting-set">
 												<div class="switch">
-													<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect"
-														for="switch-6">
-														<input type="checkbox" id="switch-6" class="mdl-switch__input"
-															checked>
+													<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-6">
+														<input type="checkbox" id="switch-6" class="mdl-switch__input" checked>
 													</label>
 												</div>
 											</div>
@@ -361,7 +440,7 @@ session_start();
 			<!-- end chat sidebar -->
 		</div>
 		<!-- end page container -->
-		
+
 	</div>
 	<!-- start js include path -->
 	<script src="assets/plugins/jquery/jquery.min.js"></script>
@@ -384,8 +463,59 @@ session_start();
 	<script src="assets/plugins/dropzone/dropzone.js"></script>
 	<script src="assets/plugins/dropzone/dropzone-call.js"></script>
 	<!-- end js include path -->
+	<script>
+		document.querySelector("input[type=number]")
+			.oninput = e => console.log(new Date(e.target.valueAsNumber, 0, 1))
+	</script>
 </body>
 
-
-<!-- Mirrored from www.einfosoft.com/templates/admin/smart/source/light/add_student.php by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 17 Dec 2022 06:34:34 GMT -->
 </html>
+
+<?php
+
+
+
+if (isset($_POST['submit'])) {
+	$name = $_POST['name'];
+	$rollno = $_POST['roll_no'];
+	$dob = $_POST['dob'];
+	$email = $_POST['email'];
+	$section = $_POST['section'];
+	$mobno = $_POST['mob_no'];
+	$parno = $_POST['par_no'];
+	$collid = $_POST['col_id'];
+	$pass = $_POST['pass_year'];
+	$year = $_POST['year'];
+
+	//$sql = "SELECT `year_id` FROM years WHERE `year_name` = '$year'";
+	$stmt = $con->prepare("SELECT year_id FROM years WHERE year_name = '$year'");
+	//$stmt->bind_param('s', $year);
+	$stmt->execute();
+	$stmt->bind_result($yearId);
+	$stmt->fetch();
+	$stmt->close();
+
+	$insertquery = "INSERT INTO `students`(`Roll_No`, `Name`, `Section`, `Mobile`, `Email`, `Col_ID`, `DOB`, `Par_No`, `Passing_year`, `year_id`) VALUES ('$rollno','$name','$section','$mobno','$email','$collid','$dob','$parno','$pass','$yearId')";
+
+
+
+	$res = mysqli_query($con, $insertquery);
+
+	if ($res) {
+?>
+		<script>
+			alert("Data Inserted");
+		</script>
+	<?php
+	} else {
+	?>
+		<script>
+			alert("Data Not Inserted");
+		</script>
+<?php
+
+	}
+}
+
+
+?>

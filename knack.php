@@ -41,7 +41,8 @@ session_start();
     <link href="assets/plugins/sweet-alert/sweetalert2.min.css" rel="stylesheet">
     <!-- favicon -->
     <link rel="shortcut icon" href="assets/img/favicon/logo-half.png" />
-    <link href="assets/css/clubs.css" rel="stylesheet" type="text/css" />
+    <!-- <link href="assets/css/clubs.css" rel="stylesheet" type="text/css" /> -->
+    <link href="assets/css/clubs.css?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
 </head>
 <!-- END HEAD -->
 
@@ -59,125 +60,182 @@ session_start();
             <!-- start page content -->
             <div class="page-content-wrapper">
                 <div class="page-content">
-                    <a href="edit_gfg.php" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 m-r-20 btn-circle btn-primary" style="margin-top: 4rem !important;">Edit</a>
-                    <div class="club_content">
 
-                        <?php
+                <div class="page-bar">
+						<div class="page-title-breadcrumb">
+							<div class=" pull-left">
+								<div class="page-title">Knack</div>
+							</div>
+							
+						</div>
+					</div>
+                    <!-- -------------------------------- -->
 
-                        require("db.php");
+                    <div class="row">
 
-                        if (isset($_POST['submit'])) {
-                            $username = $_POST['username'];
-                            $winner = $_POST['winner'];
-                            $link = $_POST['link'];
-                            $date = $_POST['date'];
-                            $files = $_FILES['image'];
+                        <div class="col-md-12 col-sm-12 col-12">
+                            <div class="card-box">
+                                <div class="card-head">
+                                    <header>Upcoming Event</header>
 
-                            // print_r($username);
-                            // print_r($files);
+                                </div>
 
-                            $filename = $files['name'];
-                            $fileerror = $files['error'];
-                            $filetmp = $files['tmp_name'];
+                                <div class="card-body">
 
-                            $fileext = explode('.', $filename);
-                            $filecheck = strtolower(end($fileext));
+                                    <!-- ---------------------------------- -->
+                                    <div class="row">
 
-                            $fileextstored = array('png', 'jpg', 'jpeg');
+                                        <div class="col-lg-4 col-md-12 col-sm-12 col-12">
+                                            <!-- <div class="card-box"> -->
 
-                            if (in_array($filecheck, $fileextstored)) {
-                                $destinationfile = 'event_images/' . $filename;
-                                move_uploaded_file($filetmp, $destinationfile);
+                                                <div class="card-body d-flex justify-content-center align-items-center">
 
-                                $q = "INSERT INTO `gfg`(`Name`, `Banner`, `Winner`, `Link`, `Date`) VALUES ('$username', '$destinationfile', '$winner', '$link', '$date')";
+                                                    <?php
 
-                                $query = mysqli_query($con, $q);
-
-                                $displayquery = "select * from knack ORDER BY ID DESC LIMIT 1";
-                                $querydisplay = mysqli_query($con, $displayquery);
+                                                    require("db.php");
 
 
 
-                                while ($result = mysqli_fetch_array($querydisplay)) {
-
-                        ?>
-
+                                                    $displayquery = "select * from knack ORDER BY ID DESC LIMIT 1";
+                                                    $querydisplay = mysqli_query($con, $displayquery);
 
 
-                                    <div class="club_recent">
-                                        <div><img src=" <?php echo $result['Banner']; ?>" alt="" class="event_banner"></div>
-                                        <h3 class="event_name"><?php echo $result['Name']; ?></h3>
-                                        <h5 class="event_link"><a href="<?php echo $result['Link']; ?>">Fill The Form</a></h5>
-                                    <?php
 
-                                }
+                                                    while ($result = mysqli_fetch_array($querydisplay)) {
+
+                                                    ?>
+                                                        <img src="<?php echo $result['Banner']; ?>" style="height: 300px !important;
+                                                        width: 300px;" class="card-img-top h-100" alt="...">
 
 
-                                    ?>
+                                                </div>
+                                            <!-- </div> -->
+                                        </div>
 
+                                        <div class="col-lg-8 col-md-12 col-sm-12 col-12">
+                                            <!-- <div class="card-box"> -->
+
+                                                <!-- <div class="card-body "> -->
+                                                    <div class="container">
+
+                                                        <h1 class="card-title"><b><u> Name of Event</u>&nbsp;: </b><?php echo $result['Name']; ?></h1>
+                                                        <br><br>
+
+                                                        <h4><b><u>Last Date to Register</u>&nbsp; : </b>
+                                                            <?php
+                                                            $date = new DateTime($result['LDTR']);
+
+                                                            // Get the formatted date (only date and month)
+                                                            $month = $date->format('F');
+
+                                                            // Get the date
+                                                            $dateNumber = date_format($date, 'd');
+
+                                                            // Display the month and date
+                                                            echo $month . ' ' . $dateNumber;
+                                                            ?></h4>
+                                                        <!-- <p class="card-text">Alice is a freelance web designer and developer based in London. She is specialized in HTML5, CSS3, JavaScript, Bootstrap, etc.</p> -->
+                                                        <br><br>
+                                                        <a href="<?php echo $result['Link']; ?>">Fill The Form</a>
+                                                        <br>
+                                                        <br>
+                                                    <?php
+
+                                                    }
+
+
+                                                    ?>
+
+                                                    </div>
+                                                <!-- </div> -->
+                                            <!-- </div> -->
+                                        </div>
                                     </div>
 
+                                    <!-- -------------------------------------- -->
 
 
 
-                                    <div class="club_old">
-
-                                        <table class="table table-striped table-bordered table-hover table-checkable order-column valign-middle" id="example4">
-                                            <thead>
-                                                <tr>
-                                                    <th>Event Name</th>
-                                                    <th>Event Date</th>
-                                                    <th>Event Winner</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
+                                </div>
 
 
-                                                <?php
+                            </div>
+                        </div>
+                    </div>
 
-                                                $displayquery2 = "select * from knack WHERE ID NOT IN (SELECT MAX(ID) from knack) ORDER BY ID DESC LIMIT 3";
-                                                $querydisplay2 = mysqli_query($con, $displayquery2);
+                    <div class="col-md-12 col-sm-12">
+                        <div class="card-box">
+                            <div class="card-head">
+                                <div class="card-head">
+                                    <header>Recently Completed Event</header>
+
+                                </div>
+                                <div class="tools">
+                                    <a class="fa fa-repeat btn-color box-refresh" href="javascript:;"></a>
+                                    <a class="t-collapse btn-color fa fa-chevron-down" href="javascript:;"></a>
+
+                                </div>
+                            </div>
+                            <div class="card-body ">
+
+                                <div class="table-responsive">
+
+                                    <table class="table table-striped table-bordered table-hover table-checkable order-column valign-middle table-responsive" id="myTable">
+                                        <thead>
+                                            <tr>
+                                                <th>Event Name</th>
+                                                <th>Event Date</th>
+                                                <th>Event Winner</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+
+                                            <?php
+
+                                            $displayquery2 = "select * from knack WHERE ID NOT IN (SELECT MAX(ID) from knack) ORDER BY ID DESC LIMIT 3";
+                                            $querydisplay2 = mysqli_query($con, $displayquery2);
 
 
 
-                                                while ($result = mysqli_fetch_array($querydisplay2)) {
+                                            while ($result = mysqli_fetch_array($querydisplay2)) {
 
 
-                                                    echo "
+                                                echo "
                                                     <tr class='odd gradeX'>
                                                         <td>" . $result['Name'] . "</td>
                                                         <td>" . $result['Date'] . "</td>
                                                         <td>" . $result['Winner'] . "</td>
                                                     </tr>
                                                     ";
-                                                }
-                                                ?>
+                                            }
+                                            ?>
 
 
 
-                                            </tbody>
-                                        </table>
-
-                                    </div>
-
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
-
-
-
-            <?php
-
-                            }
-                        }
-            ?>
-
                 </div>
-            </div>
-            <!-- end page content -->
-            <!-- start chat sidebar -->
 
+                <!-- ------------------------------------- -->
+
+
+
+
+
+
+
+            </div>
         </div>
-        <!-- end page container -->
+        <!-- end page content -->
+        <!-- start chat sidebar -->
+
+    </div>
+    <!-- end page container -->
 
     </div>
     <!-- start js include path -->

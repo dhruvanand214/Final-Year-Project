@@ -40,7 +40,8 @@ session_start();
   <link href="assets/plugins/sweet-alert/sweetalert2.min.css" rel="stylesheet">
   <!-- favicon -->
   <link rel="shortcut icon" href="assets/img/favicon/logo-half.png" />
-  <link rel="stylesheet" href="assets/css/cards.css">
+  <!-- <link rel="stylesheet" href="assets/css/cards.css"> -->
+  <link href="assets/css/cards.css?v=<?php echo time(); ?>" rel="stylesheet" />
 
 </head>
 <!-- END HEAD -->
@@ -62,24 +63,25 @@ session_start();
           <section class="event_card">
             <h1>Computer Science Departmental Clubs</h1>
             <div class="event-card-wrapper">
-              <div class="event-card">
-                <a href="gfg.php" class="event-a">
-                  <i class="fab fa-github"></i>
+              <div class="event-card" onclick="location.href='gfg.php';">
+                <a href="gfg.php" class="event-a" style="height: 100%;">
+                  
+                  <!-- <i class="fab fa-github"></i> -->
                 </a>
               </div>
-              <div class="event-card">
+              <div class="event-card" onclick="location.href='knack.php';">
                 <a href="knack.php" class="event-a">
-                  <i class="fab fa-github"></i>
+                  <!-- <i class="fab fa-github"></i> -->
                 </a>
               </div>
-              <div class="event-card">
+              <div class="event-card" onclick="location.href='spark.php';">
                 <a href="spark.php" class="event-a">
-                  <i class="fab fa-github"></i>
+                  <!-- <i class="fab fa-github"></i> -->
                 </a>
               </div>
-              <div class="event-card">
+              <div class="event-card" onclick="location.href='mind-opt.php';">
                 <a href="mind-opt.php" class="event-a">
-                  <i class="fab fa-github"></i>
+                  <!-- <i class="fab fa-github"></i> -->
                 </a>
               </div>
               <div class="event-bg-blur"></div>

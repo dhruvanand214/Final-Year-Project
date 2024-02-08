@@ -9,12 +9,12 @@ session_start();
 <!-- BEGIN HEAD -->
 
 <head>
-	<meta charset="utf-8" />
+<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta content="width=device-width, initial-scale=1" name="viewport" />
 	<meta name="description" content="Responsive Admin Template" />
 	<meta name="author" content="SmartUniversity" />
-	<title>Smart University | Bootstrap Responsive Admin Template</title>
+	<title>CS Portal</title>
 	<!-- google font -->
 	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet" type="text/css" />
 	<!-- icons -->
@@ -38,6 +38,7 @@ session_start();
 	<link href="assets/css/theme/light/theme-color.css" rel="stylesheet" type="text/css" />
 	<!-- favicon -->
 	<link rel="shortcut icon" href="assets/img/favicon/logo-half.png" />
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css">
 </head>
 <!-- END HEAD -->
 
@@ -61,14 +62,7 @@ session_start();
 							<div class=" pull-left">
 								<div class="page-title">Faculty List</div>
 							</div>
-							<ol class="breadcrumb page-breadcrumb pull-right">
-								<li><i class="fa fa-home"></i>&nbsp;<a class="parent-item"
-										href="dashboard.php">Home</a>&nbsp;<i class="fa fa-angle-right"></i>
-								</li>
-								<li><a class="parent-item" href="#">Faculty</a>&nbsp;<i class="fa fa-angle-right"></i>
-								</li>
-								<li class="active">Faculty List</li>
-							</ol>
+							
 						</div>
 					</div>
 					<div class="row">
@@ -87,60 +81,77 @@ session_start();
 																href="javascript:;"></a>
 															<a class="t-collapse btn-color fa fa-chevron-down"
 																href="javascript:;"></a>
-															<a class="t-close btn-color fa fa-times"
-																href="javascript:;"></a>
+															
 														</div>
 													</div>
 													<div class="card-body ">
-														<div class="row">
-															<div class="col-md-6 col-sm-6 col-6">
-																<div class="btn-group">
-																	<a href="add_Faculty.html" id="addRow"
-																		class="btn btn-primary">
-																		Add New <i class="fa fa-plus"></i>
-																	</a>
-
-																</div>
-															</div>
-														</div>
-														<table
-															class="table table-striped table-bordered table-hover table-checkable order-column valign-middle"
-															id="example4">
+														
+														<table class="table table-striped table-bordered table-hover table-checkable order-column valign-middle table-responsive" id="myTable">
 															<thead>
 																<tr>
 																	
+																	<th> # </th>
 																	<th> Name </th>
-																	<th> Department </th>
-																	<th> Gender </th>
-																	<th> Degree </th>
-																	<th> Mobile </th>
 																	<th> Email </th>
+																	<th> Number </th>
+																	<th> Designation </th>
+																	<th> Gender </th>
+																	<th> Qualification </th>
+																	<th> Experience </th>
 																	<th>Joining Date</th>
 																	<th> Action </th>
 																</tr>
 															</thead>
 															<tbody>
+
+															<?php
+                                                include('db.php');
+                                                $selectquery = "select * from faculty";
+                                                $query = mysqli_query($con, $selectquery);
+                                                $nums = mysqli_num_rows($query);
+											
+$temp = 0;
+                                                while ($res = mysqli_fetch_array($query)) {
+													$temp = $temp+1;
+                                                ?>
+
 																<tr class="odd gradeX">
 																	
-																	<td>Rajesh</td>
-																	<td class="left">Computer</td>
-																	<td class="left">Male</td>
-																	<td class="left">M.Com, B.Ed</td>
-																	<td><a href="tel:4444565756">
-																			4444565756 </a></td>
-																	<td><a href="mailto:shuxer@gmail.com">
-																			rajesh@gmail.comsdgfsdfg </a></td>
-																	<td class="left">22 Feb 2000</td>
-																	<td>
-																		<a href="edit_Faculty.html"
-																			class="tblEditBtn">
-																			<i class="fa fa-pencil"></i>
-																		</a>
-																		<a class="tblDelBtn">
-																			<i class="fa fa-trash-o"></i>
-																		</a>
-																	</td>
+																	
+																	<td class="left"><?php echo $temp; ?></td>
+																	<td class="left"><?php echo $res['Name'] ?></td>
+																	<td><a href="mailto:<?php echo $res['Email'] ?>">
+																	<?php echo $res['Email'] ?>	 </a></td>
+																	
+																	<td><a href="tel:<?php echo $res['Number'] ?>">
+																	<?php echo $res['Number'] ?> </a></td>
+																	<td class="left"><?php echo $res['Designation'] ?></td>
+																	<td class="left"><?php echo $res['Gender'] ?></td>
+																	<td><?php echo $res['Qualifications'] ?></td>
+																	<td><?php echo $res['Experience'] ?></td>
+																	<td><?php echo $res['Joining_Year'] ?></td>
+																	<?php
+                                                        if ($_SESSION['ROLE'] == "admin") {
+
+                                                        ?>
+
+                                                            <td>
+                                                                <a href="edit_faculty.php?id2=<?php echo $res['S.no'] ?>" class="tblEditBtn">
+                                                                    <i class="fa fa-pencil"></i>
+                                                                </a>
+                                                                <a href="delete_faculty.php?id2=<?php echo $res['S.no'] ?>" class="tblDelBtn">
+                                                                    <i class="fa fa-trash-o"></i>
+                                                                </a>
+                                                            </td>
+
+                                                        <?php
+                                                        }
+                                                        ?>
 																</tr>
+
+																<?php
+												}
+												?>
 																
 															</tbody>
 														</table>
@@ -149,308 +160,7 @@ session_start();
 											</div>
 										</div>
 									</div>
-									<div class="tab-pane" id="tab2">
-										<div class="row">
-											<div class="col-md-4">
-												<div class="card card-box">
-													<div class="card-body no-padding ">
-														<div class="doctor-profile">
-															<img src="assets/img/user/user10.jpg" class="doctor-pic"
-																alt="">
-															<div class="profile-usertitle">
-																<div class="doctor-name">Pooja Patel </div>
-																<div class="name-center"> Mathematics </div>
-															</div>
-															<p>A-103, shyam gokul flats, Mahatma Road <br />Mumbai</p>
-															<div>
-																<p><i class="fa fa-phone"></i><a
-																		href="tel:(123)456-7890"> (123)456-7890</a></p>
-															</div>
-															<div class="profile-userbuttons">
-																<a href="Faculty_profile.html"
-																	class="btn btn-circle deepPink-bgcolor btn-sm">Read
-																	More</a>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-											<div class="col-md-4">
-												<div class="card card-box">
-													<div class="card-body no-padding ">
-														<div class="doctor-profile">
-															<img src="assets/img/user/user1.jpg" class="doctor-pic"
-																alt="">
-															<div class="profile-usertitle">
-																<div class="doctor-name">Rajesh </div>
-																<div class="name-center"> Science </div>
-															</div>
-															<p>45, Krishna Tower, Near Bus Stop, Satellite, <br />Mumbai
-															</p>
-															<div>
-																<p><i class="fa fa-phone"></i><a
-																		href="tel:(123)456-7890"> (123)456-7890</a></p>
-															</div>
-															<div class="profile-userbuttons">
-																<a href="Faculty_profile.html"
-																	class="btn btn-circle deepPink-bgcolor btn-sm">Read
-																	More</a>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-											<div class="col-md-4">
-												<div class="card card-box">
-													<div class="card-body no-padding ">
-														<div class="doctor-profile">
-															<img src="assets/img/user/user2.jpg" class="doctor-pic"
-																alt="">
-															<div class="profile-usertitle">
-																<div class="doctor-name">Sarah Smith </div>
-																<div class="name-center"> Computer </div>
-															</div>
-															<p>456, Estern evenue, Courtage area, <br />New York</p>
-															<div>
-																<p><i class="fa fa-phone"></i><a
-																		href="tel:(123)456-7890"> (123)456-7890</a></p>
-															</div>
-															<div class="profile-userbuttons">
-																<a href="Faculty_profile.html"
-																	class="btn btn-circle deepPink-bgcolor btn-sm">Read
-																	More</a>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-md-4">
-												<div class="card card-box">
-													<div class="card-body no-padding ">
-														<div class="doctor-profile">
-															<img src="assets/img/user/user3.jpg" class="doctor-pic"
-																alt="">
-															<div class="profile-usertitle">
-																<div class="doctor-name">John Deo </div>
-																<div class="name-center"> Engineering </div>
-															</div>
-															<p>A-103, shyam gokul flats, Mahatma Road <br />Mumbai</p>
-															<div>
-																<p><i class="fa fa-phone"></i><a
-																		href="tel:(123)456-7890"> (123)456-7890</a></p>
-															</div>
-															<div class="profile-userbuttons">
-																<a href="Faculty_profile.html"
-																	class="btn btn-circle deepPink-bgcolor btn-sm">Read
-																	More</a>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-											<div class="col-md-4">
-												<div class="card card-box">
-													<div class="card-body no-padding ">
-														<div class="doctor-profile">
-															<img src="assets/img/user/user4.jpg" class="doctor-pic"
-																alt="">
-															<div class="profile-usertitle">
-																<div class="doctor-name">Jay Soni </div>
-																<div class="name-center"> Music </div>
-															</div>
-															<p>45, Krishna Tower, Near Bus Stop, Satellite, <br />Mumbai
-															</p>
-															<div>
-																<p><i class="fa fa-phone"></i><a
-																		href="tel:(123)456-7890"> (123)456-7890</a></p>
-															</div>
-															<div class="profile-userbuttons">
-																<a href="Faculty_profile.html"
-																	class="btn btn-circle deepPink-bgcolor btn-sm">Read
-																	More</a>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-											<div class="col-md-4">
-												<div class="card card-box">
-													<div class="card-body no-padding ">
-														<div class="doctor-profile">
-															<img src="assets/img/user/user5.jpg" class="doctor-pic"
-																alt="">
-															<div class="profile-usertitle">
-																<div class="doctor-name">Jacob Ryan </div>
-																<div class="name-center"> Commerce </div>
-															</div>
-															<p>456, Estern evenue, Courtage area, <br />New York</p>
-															<div>
-																<p><i class="fa fa-phone"></i><a
-																		href="tel:(123)456-7890"> (123)456-7890</a></p>
-															</div>
-															<div class="profile-userbuttons">
-																<a href="Faculty_profile.html"
-																	class="btn btn-circle deepPink-bgcolor btn-sm">Read
-																	More</a>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-md-4">
-												<div class="card card-box">
-													<div class="card-body no-padding ">
-														<div class="doctor-profile">
-															<img src="assets/img/user/user6.jpg" class="doctor-pic"
-																alt="">
-															<div class="profile-usertitle">
-																<div class="doctor-name">Megha Trivedi </div>
-																<div class="name-center"> Mechanical </div>
-															</div>
-															<p>A-103, shyam gokul flats, Mahatma Road <br />Mumbai</p>
-															<div>
-																<p><i class="fa fa-phone"></i><a
-																		href="tel:(123)456-7890"> (123)456-7890</a></p>
-															</div>
-															<div class="profile-userbuttons">
-																<a href="Faculty_profile.html"
-																	class="btn btn-circle deepPink-bgcolor btn-sm">Read
-																	More</a>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-											<div class="col-md-4">
-												<div class="card card-box">
-													<div class="card-body no-padding ">
-														<div class="doctor-profile">
-															<img src="assets/img/user/user1.jpg" class="doctor-pic"
-																alt="">
-															<div class="profile-usertitle">
-																<div class="doctor-name">Rajesh </div>
-																<div class="name-center"> Science </div>
-															</div>
-															<p>45, Krishna Tower, Near Bus Stop, Satellite, <br />Mumbai
-															</p>
-															<div>
-																<p><i class="fa fa-phone"></i><a
-																		href="tel:(123)456-7890"> (123)456-7890</a></p>
-															</div>
-															<div class="profile-userbuttons">
-																<a href="Faculty_profile.html"
-																	class="btn btn-circle deepPink-bgcolor btn-sm">Read
-																	More</a>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-											<div class="col-md-4">
-												<div class="card card-box">
-													<div class="card-body no-padding ">
-														<div class="doctor-profile">
-															<img src="assets/img/user/user2.jpg" class="doctor-pic"
-																alt="">
-															<div class="profile-usertitle">
-																<div class="doctor-name">Sarah Smith </div>
-																<div class="name-center"> Computer </div>
-															</div>
-															<p>456, Estern evenue, Courtage area, <br />New York</p>
-															<div>
-																<p><i class="fa fa-phone"></i><a
-																		href="tel:(123)456-7890"> (123)456-7890</a></p>
-															</div>
-															<div class="profile-userbuttons">
-																<a href="Faculty_profile.html"
-																	class="btn btn-circle deepPink-bgcolor btn-sm">Read
-																	More</a>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-md-4">
-												<div class="card card-box">
-													<div class="card-body no-padding ">
-														<div class="doctor-profile">
-															<img src="assets/img/user/user10.jpg" class="doctor-pic"
-																alt="">
-															<div class="profile-usertitle">
-																<div class="doctor-name">Pooja Patel </div>
-																<div class="name-center"> Mathematics </div>
-															</div>
-															<p>A-103, shyam gokul flats, Mahatma Road <br />Mumbai</p>
-															<div>
-																<p><i class="fa fa-phone"></i><a
-																		href="tel:(123)456-7890"> (123)456-7890</a></p>
-															</div>
-															<div class="profile-userbuttons">
-																<a href="Faculty_profile.html"
-																	class="btn btn-circle deepPink-bgcolor btn-sm">Read
-																	More</a>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-											<div class="col-md-4">
-												<div class="card card-box">
-													<div class="card-body no-padding ">
-														<div class="doctor-profile">
-															<img src="assets/img/user/user1.jpg" class="doctor-pic"
-																alt="">
-															<div class="profile-usertitle">
-																<div class="doctor-name">Rajesh </div>
-																<div class="name-center"> Science </div>
-															</div>
-															<p>45, Krishna Tower, Near Bus Stop, Satellite, <br />Mumbai
-															</p>
-															<div>
-																<p><i class="fa fa-phone"></i><a
-																		href="tel:(123)456-7890"> (123)456-7890</a></p>
-															</div>
-															<div class="profile-userbuttons">
-																<a href="Faculty_profile.html"
-																	class="btn btn-circle deepPink-bgcolor btn-sm">Read
-																	More</a>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-											<div class="col-md-4">
-												<div class="card card-box">
-													<div class="card-body no-padding ">
-														<div class="doctor-profile">
-															<img src="assets/img/user/user3.jpg" class="doctor-pic"
-																alt="">
-															<div class="profile-usertitle">
-																<div class="doctor-name">John Deo </div>
-																<div class="name-center"> Engineering </div>
-															</div>
-															<p>A-103, shyam gokul flats, Mahatma Road <br />Mumbai</p>
-															<div>
-																<p><i class="fa fa-phone"></i><a
-																		href="tel:(123)456-7890"> (123)456-7890</a></p>
-															</div>
-															<div class="profile-userbuttons">
-																<a href="Faculty_profile.html"
-																	class="btn btn-circle deepPink-bgcolor btn-sm">Read
-																	More</a>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
+									
 								</div>
 							</div>
 						</div>
@@ -464,25 +174,32 @@ session_start();
 		
 	</div>
 	<!-- start js include path -->
-	<script src="assets/plugins/jquery/jquery.min.js"></script>
-	<script src="assets/plugins/popper/popper.js"></script>
-	<script src="assets/plugins/jquery-blockui/jquery.blockui.min.js"></script>
-	<script src="assets/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
-	<script src="assets/plugins/feather/feather.min.js"></script>
-	<!-- bootstrap -->
-	<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-	<script src="assets/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
-	<!-- data tables -->
-	<!-- <script src="assets/plugins/datatables/jquery.dataTables.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
+    <script>
+        let table = new DataTable('#myTable');
+    </script>
+    <script src="assets/plugins/jquery/jquery.min.js"></script>
+    <script src="assets/plugins/popper/popper.js"></script>
+    <script src="assets/plugins/jquery-blockui/jquery.blockui.min.js"></script>
+    <script src="assets/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+    <script src="assets/plugins/feather/feather.min.js"></script>
+    <!-- bootstrap -->
+    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+    <!-- data tables -->
+    <!-- <script src="assets/plugins/datatables/jquery.dataTables.min.js"></script>
 	<script src="assets/plugins/datatables/plugins/bootstrap/dataTables.bootstrap5.min.js"></script>
+	
 	<script src="assets/js/pages/table/table_data.js"></script> -->
-	<!-- Common js-->
-	<script src="assets/js/app.js"></script>
-	<script src="assets/js/layout.js"></script>
-	<script src="assets/js/theme-color.js"></script>
-	<!-- Material -->
-	<script src="assets/plugins/material/material.min.js"></script>
-	<!-- end js include path -->
+    <!-- Common js-->
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/layout.js"></script>
+    <script src="assets/js/theme-color.js"></script>
+    <!-- Material -->
+    <!-- <script src="assets/plugins/material/material.min.js"></script> -->
+    <!-- end js include path -->
+    
 </body>
 
 

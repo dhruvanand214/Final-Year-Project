@@ -1981,7 +1981,7 @@ form.search-form-opened .btn.submit {
   .dropdown-toggle
   > .username {
   display: inline-block;
-  font-size: 14px;
+  font-size: 20px;
   font-weight: 500;
 }
 .page-header.navbar
@@ -8849,7 +8849,7 @@ nav-tabs > li {
   border-radius: 100%;
 }
 .info-box-icon.push-bottom {
-  margin-top: 20px;
+  margin-top: 5px;
 }
 .info-box-icon > img {
   max-width: 100%;
@@ -9340,7 +9340,7 @@ nav-tabs > li {
 .feedBody {
   border-left: 1px solid #d6d6d6;
   margin-left: 30px;
-  padding: 0;
+  padding: 16.5px;
 }
 .col-auto {
   padding-left: 15px;
